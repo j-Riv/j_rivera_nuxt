@@ -1,0 +1,45 @@
+{
+    "nav": {
+        "home": "INICIO"
+    },
+    "index": {
+        "about": "SOBRE MI",
+        "skills": "MAESTRÍA",
+        "contact": "CONTACTO"
+    },
+    "hero": {
+        "iam": "YO SOY"
+    },
+    "about": {
+        "title": "SOBRE MI",
+        "content": "Mi nombre es José Alfredo Rivera Turcios y soy un desarrollador Full Stack con sede en el Condado de Orange, California."
+    },
+    "skills": {
+        "title": "MAESTRÍA",
+        "spokenLang": {
+            "title": "Idiomas",
+            "content": "Ingles, Español"
+        },
+        "programmingLang": {
+            "title": "Lenguajes de Programación",
+            "content": "JavaScript, PHP, Python"
+        },
+        "webTech": {
+            "title": "Tecnologías Web",
+            "content": "Node, Vue, React, SQL, WordPress, Shopify, Git"
+        },
+        "software": {
+            "title": "Software",
+            "content": "Adobe Illustrator, Adobe InDesign, Adobe Photoshop"
+        }
+    },
+    "blog": {
+        "title": "BLOG"
+    },
+    "contact": {
+        "title": "CONTÁCTAME"
+    },
+    "footer": {
+        "madeWith": "Hecho con"
+    }
+}

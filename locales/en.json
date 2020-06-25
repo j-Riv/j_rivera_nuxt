@@ -1,0 +1,45 @@
+{
+    "nav": {
+        "home": "HOME"
+    },
+    "index": {
+        "about": "ABOUT ME",
+        "skills": "SKILLS",
+        "contact": "CONTACT"
+    },
+    "hero": {
+        "iam": "I AM"
+    },
+    "about": {
+        "title": "ABOUT ME",
+        "content": "My Name is José Alfredo Rivera Turcios and I am a Full Stack Developer based out of Orange County, California."
+    },
+    "skills": {
+        "title": "SKILLS",
+        "spokenLang": {
+            "title": "Fluent Languages",
+            "content": "English, Spanish"
+        },
+        "programmingLang": {
+            "title": "Programming Languages",
+            "content": "JavaScript, PHP, Python"
+        },
+        "webTech": {
+            "title": "Web Technologies",
+            "content": "Node, Vue, React, SQL, WordPress, Shopify, Git"
+        },
+        "software": {
+            "title": "Software",
+            "content": "Adobe Illustrator, Adobe InDesign, Adobe Photoshop"
+        }
+    },
+    "blog": {
+        "title": "BLOG"
+    },
+    "contact": {
+        "title": "CONTACT ME"
+    },
+    "footer": {
+        "madeWith": "Made with"
+    }
+}
