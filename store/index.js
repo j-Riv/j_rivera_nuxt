@@ -10,7 +10,13 @@ export const mutations = {
       state.locale = locale
     }
   },
-  SET_DRAWER(state) {
-    state.drawer = !state.drawer
+  SET_DRAWER(state, value) {
+    state.drawer = value
+  }
+}
+
+export const actions = {
+  UPDATE_DRAWER({ commit }, value) {
+    commit('SET_DRAWER', value)
   }
 }
