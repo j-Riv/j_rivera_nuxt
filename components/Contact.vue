@@ -27,7 +27,7 @@
           <v-col cols="12">
             <v-text-field
               flat
-              label="Name*"
+              :label="this.$t('contact.fields.name') + '*'"
               solo
             ></v-text-field>
           </v-col>
@@ -35,7 +35,7 @@
           <v-col cols="12">
             <v-text-field
               flat
-              label="Email*"
+              :label="this.$t('contact.fields.email') + '*'"
               solo
             ></v-text-field>
           </v-col>
@@ -43,7 +43,7 @@
           <v-col cols="12">
             <v-text-field
               flat
-              label="Subject*"
+              :label="this.$t('contact.fields.subject') + '*'"
               solo
             ></v-text-field>
           </v-col>
@@ -51,7 +51,7 @@
           <v-col cols="12">
             <v-textarea
               flat
-              label="Message*"
+              :label="this.$t('contact.fields.message') + '*'"
               solo
             ></v-textarea>
           </v-col>
@@ -64,7 +64,7 @@
               color="primary"
               x-large
             >
-              Submit
+              {{ this.$t('contact.fields.submit') }}
             </v-btn>
           </v-col>
         </v-row>

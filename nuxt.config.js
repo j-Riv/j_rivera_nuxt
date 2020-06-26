@@ -68,7 +68,7 @@ export default {
           }).all()
 
           return {
-            route: `category/${tag}`,
+            route: `blog/category/${tag}`,
             payload: payload
           }
         }).all()
@@ -80,7 +80,7 @@ export default {
         }
       }).all()
 
-      let r = ['/', '/es', '/about', '/es/about']
+      let r = ['/', '/es', '/about', '/es/about', '/resume', '/es/resume']
 
       return r.concat(posts).concat(tags)
     }

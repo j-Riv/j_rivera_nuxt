@@ -18,9 +18,6 @@
       </v-avatar>
     </nuxt-link>
 
-    <v-toolbar-title class="font-weight-black headline">
-      VUETIFY
-    </v-toolbar-title>
     <v-spacer />
       <v-menu top :close-on-click="closeOnClick">
         <template v-slot:activator="{ on }">
@@ -34,7 +31,7 @@
           </v-btn>
           </v-toolbar-items>
         </template>
-        <v-list>
+        <v-list v-if="!$route.path.includes('blog')">
           <v-list-item v-if="$i18n.locale === 'es'">
             <v-btn text :to="$route.fullPath.replace(/^\/[^\/]+/, '')"> 
               <v-list-item-title>En</v-list-item-title>
@@ -57,22 +54,31 @@
         <v-btn text @click="$vuetify.goTo('#contact')">
           {{ this.$t('index.contact') }}
         </v-btn>
+        <NavBar/>
       </v-toolbar-items>
       <v-toolbar-items v-else>
-        <v-btn to="/">
+        <v-btn text to="/" v-if="$t.locale === 'en'">
           {{ this.$t('nav.home') }}
         </v-btn>
+        <v-btn text to="/es" v-else>
+          {{ this.$t('nav.home') }}
+        </v-btn>
+        <NavBar/>
       </v-toolbar-items>
   </v-app-bar>
 </template>
 
 <script>
-  export default {
-    name: 'Header',
-    data () {
-      return {
-        closeOnClick: true
-      }
+import NavBar from './NavBar'
+export default {
+  name: 'Header',
+  data () {
+    return {
+      closeOnClick: true
     }
+  },
+  components: {
+    NavBar
   }
+}
 </script>
