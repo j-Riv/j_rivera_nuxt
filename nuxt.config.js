@@ -1,3 +1,5 @@
+require('dotenv').config()
+const collect = require('collect.js')
 import colors from 'vuetify/es5/util/colors'
 
 export default {
@@ -44,7 +46,44 @@ export default {
     '~/plugins/i18n.js'
   ],
   generate: {
-    routes: ['/', '/es', '/about', '/es/about']
+    // routes: ['/', '/es', '/about', '/es/about']
+    routes: async () => {
+      let { data } = await axios.post(process.env.COCKPIT_POSTS_URL,
+        JSON.stringify({
+          filter: { published: true },
+          sort: { _created: -1 },
+          populate: 1
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' }
+        })
+      const collection = collect(data.entries)
+
+      let tags = collection.map(post => post.tags)
+        .flatten()
+        .unique()
+        .map(tag => {
+          let payload = collection.filter(item => {
+            return collect(item.tags).contains(tag)
+          }).all()
+
+          return {
+            route: `category/${tag}`,
+            payload: payload
+          }
+        }).all()
+
+      let posts = collection.map(post => {
+        return {
+          route: post.title_slug,
+          payload: post
+        }
+      }).all()
+
+      let r = ['/', '/es', '/about', '/es/about']
+
+      return r.concat(posts).concat(tags)
+    }
   },
   /*
   ** Auto import components
@@ -56,12 +95,21 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxt/http',
+    '@nuxtjs/axios'
   ],
+  dotenv: {
+    // module options
+  },
+  http: {
+    // proxyHeaders: false
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

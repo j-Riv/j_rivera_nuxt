@@ -57,6 +57,22 @@
 
 <script>
 export default {
-  props: ['articles']
+  name: 'Blog',
+  data () {
+    articles: []
+  },
+  async asyncData ({ $axios }) {
+    const { data } = await $axios.get(process.env.COCKPIT_POSTS_URL,
+    JSON.stringify({
+        filter: { published: true },
+        sort: {_created:-1},
+        populate: 1
+      }),
+    {
+      headers: { 'Content-Type': 'application/json' }
+    })
+
+    return { articles: data.entries }
+  }
 }
 </script>

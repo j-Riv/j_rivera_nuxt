@@ -1,10 +1,10 @@
 <template>
-  <section id="blog">
+  <v-container id="blog">
     <div class="py-12"></div>
 
     <v-container>
       <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
-        {{ this.$t('blog.title') }}
+        Posts tagged with "{{ category }}"
       </h2>
 
       <v-responsive
@@ -18,7 +18,7 @@
 
       <v-row>
         <v-col
-          v-for="(post, i) in articles"
+          v-for="(post, i) in posts"
           :key="i"
           cols="12"
           md="4"
@@ -52,11 +52,31 @@
     </v-container>
 
     <div class="py-12"></div>
-  </section>
+  </v-container>
 </template>
 
 <script>
 export default {
-  props: ['articles']
+  async asyncData ({ app, params, error, payload }) {
+    if (payload) {
+      return { posts: payload, category: params.tag }
+    } else {
+      let { data } = await app.$axios.get(process.env.COCKPIT_POSTS_URL,
+      JSON.stringify({
+          filter: { published: true, tags: { $has:params.tag } },
+          sort: {_created:-1},
+          populate: 1
+        }),
+      {
+        headers: { 'Content-Type': 'application/json' }
+      })
+
+      if (!data.entries[0]) {
+        return error({ message: '404 Page not found', statusCode: 404 })
+      }
+
+      return { posts: data.entries, category: params.tag }
+    }
+  }
 }
 </script>

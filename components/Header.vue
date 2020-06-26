@@ -4,17 +4,19 @@
     color="black"
     height="100"
   >
-    <v-avatar
-      class="mr-3"
-      color="black"
-      size="70"
-    >
-      <v-img
-        contain
-        max-height="70%"
-        src="/jriv.png"
-      ></v-img>
-    </v-avatar>
+    <nuxt-link to="/">
+      <v-avatar
+        class="mr-3"
+        color="black"
+        size="70"
+      >      
+        <v-img
+          contain
+          max-height="70%"
+          src="/jriv.png"
+        ></v-img>
+      </v-avatar>
+    </nuxt-link>
 
     <v-toolbar-title class="font-weight-black headline">
       VUETIFY

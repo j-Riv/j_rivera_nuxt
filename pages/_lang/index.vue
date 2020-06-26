@@ -4,7 +4,7 @@
     <About/>
     <Features/>
     <Skills/>
-    <Blog/>
+    <Blog :articles="posts"/>
     <Contact/>
   </div>
 </template>
@@ -20,6 +20,23 @@
 
   export default {
     name: 'Index',
-    // data () {}
+    data () {
+      return {
+        posts: []
+      }
+    },
+    async asyncData ({ $axios }) {
+      const { data } = await $axios.get(process.env.COCKPIT_POSTS_URL,
+      JSON.stringify({
+          filter: { published: true },
+          sort: {_created:-1},
+          populate: 1
+        }),
+      {
+        headers: { 'Content-Type': 'application/json' }
+      })
+
+      return { posts: data.entries }
+    }
   }
 </script>
