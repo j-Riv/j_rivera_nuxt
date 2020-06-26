@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <Drawer/>
     <Header/>
     <v-content>
       <nuxt />
@@ -9,13 +10,15 @@
 </template>
 
 <script>
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Drawer from '~/components/Drawer'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
 
 export default {
-  data () {
-    return {
-    }
+  components: {
+    Drawer,
+    Header,
+    Footer
   }
 }
 </script>

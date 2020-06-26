@@ -1,6 +1,7 @@
 export const state = () => ({
   locales: ['en', 'es'],
-  locale: 'en'
+  locale: 'en',
+  drawer: false
 })
 
 export const mutations = {
@@ -8,5 +9,8 @@ export const mutations = {
     if (state.locales.includes(locale)) {
       state.locale = locale
     }
+  },
+  SET_DRAWER(state) {
+    state.drawer = !state.drawer
   }
 }
