@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    :value="drawer"
+    v-model="drawer"
     fixed
     temporary
   >
@@ -23,44 +23,89 @@
 
     <v-list dense>
 
-      <v-list-item
-        v-for="item in items"
-        :key="item.title"
-        link
-      >
+      <v-list-item to="/" v-if="$i18n.locale === 'en'">
         <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon> </v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title>{{ this.$t('nav.home') }}</v-list-item-title>
         </v-list-item-content>
-
       </v-list-item>
+
+      <v-list-item to="/" v-else>
+        <v-list-item-icon>
+          <v-icon> </v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>{{ this.$t('nav.home') }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <DrawerSubNav v-if="$route.path ==='/' || $route.path === '/es/'"/>
+
+      <v-list-item to="/resume" v-if="$i18n.locale === 'en'">
+        <v-list-item-icon>
+          <v-icon> </v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>{{ this.$t('nav.resume') }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item to="/resume" v-else>
+        <v-list-item-icon>
+          <v-icon> </v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>{{ this.$t('nav.resume') }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item to="/blog">
+        <v-list-item-icon>
+          <v-icon> </v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>BLOG</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
     </v-list>
+
   </v-navigation-drawer>
 </template>
 
 <script>
+  import DrawerSubNav from './DrawerSubNav'
+
   export default {
     name: 'Drawer',
     data () {
       return {
-        // drawer: null,
         items: [
           { index: false, title: this.$t('nav.home'), icon: '' },
-          { index: true, title: this.$t('index.about'), icon: '' },
-          { index: true, title: this.$t('index.skills'), icon: '' },
-          { index: true, title: this.$t('index.contact'), icon: '' },
           { index: false, title: this.$t('nav.resume'), icon: '' },
           { index: false, title: 'BLOG', icon: '' }
         ],
       }
     },
     computed: {
-      drawer () {
-        return this.$store.state.drawer
+      drawer: {
+        get () {
+          return this.$store.state.drawer
+        },
+        set (val) {
+          this.$store.commit('SET_DRAWER', val)
+        }
       }
+    },
+    components: {
+      DrawerSubNav
     }
   }
 </script>
