@@ -1,0 +1,84 @@
+{
+    "nav": {
+        "home": "INICIO",
+        "resume": "RESUME"
+    },
+    "index": {
+        "about": "SOBRE MI",
+        "skills": "MAESTRÍA",
+        "contact": "CONTACTO"
+    },
+    "hero": {
+        "iam": "YO SOY"
+    },
+    "about": {
+        "title": "SOBRE MI",
+        "content": "Mi nombre es José Alfredo Rivera Turcios y soy un desarrollador Full Stack con sede en el Condado de Orange, California."
+    },
+    "skills": {
+        "title": "MAESTRÍA",
+        "spokenLang": {
+            "title": "Idiomas",
+            "content": "Ingles, Español"
+        },
+        "programmingLang": {
+            "title": "Lenguajes de Programación",
+            "content": "JavaScript, PHP, Python"
+        },
+        "webTech": {
+            "title": "Tecnologías Web",
+            "content": "Node, Vue, React, SQL, WordPress, Shopify, Git"
+        },
+        "software": {
+            "title": "Software",
+            "content": "Adobe Illustrator, Adobe InDesign, Adobe Photoshop"
+        }
+    },
+    "blog": {
+        "title": "BLOG"
+    },
+    "contact": {
+        "title": "CONTÁCTAME",
+        "fields": {
+            "name": "Nombre",
+            "email": "Email",
+            "subject": "Sujeto",
+            "message": "Mensaje",
+            "submit": "Enviar"
+        }
+    },
+    "footer": {
+        "madeWith": "Hecho con"
+    },
+    "resume": {
+        "summary": "Sumario",
+        "summaryText": "Desarrollador versátil Full-Stack con más de 4 años de experiencia diseñando, desarrollando y administrando sitios complejos de comercio electrónico y aplicaciones internas. Disfruta integrando tecnologías para resolver problemas. Apasionado por abordar los desafíos de programación desde diferentes ángulos y colaborar con otros para crear aplicaciones web significativas. Excelentes habilidades de comunicación verbal y escrita junto con fuertes habilidades de gestión de proyectos.Trabajando duro y capaz de realizar múltiples tareas de manera eficiente.Fluido en inglés y español.",
+        "technicalSkills": "Maestría Técnicas",
+        "operatingSystems": "Sistemas Operativos",
+        "programming": "Programación",
+        "applications": "Aplicaciones",
+        "experience": "Experiencia",
+        "fullStackDeveloper": "Desarrollador Full Stack",
+        "suaveDate": "Julio de 2014 - Actual",
+        "suaveDesc": [
+            "Realizar el diseño y desarrollo del sitio web para Suavecito y todas las compañías subsidiarias.",
+            "Mantener la coherencia de la marca y garanticar la calidad en varios sitios web.",
+            "Usar Photoshop, Illustrator e InVision para crear prototipos de diseños de sitios web / aplicaciones.",
+            "Especializo en la creación de sitios web de comercio electrónico interactivos y fáciles de usar en plataformas como Shopify y Wordpress.",
+            "Actualice y crear nuevas plantillas / diseños de productos para adaptarse a las nuevas necesidades de comercio electrónico a medida que se agregan nuevos productos.",
+            "Utilizar herramientas como Trello para gestionar la programación y garantizar la entrega puntual del contenido.",
+            "Asegurar la gestión adecuada del inventario de productos a través de la configuración e implementación del software de inventario.",
+            "Desarrollar ilustraciones y maquetación para impresión y digital.",
+            "Usar Aplicaciones Adobe para editar y organizar fotos con fines publicitarios y de marketing."
+        ],
+        "education": "Educación",
+        "bootcampCertificate": "Certificado Bootcamp",
+        "uci": "Universidad de California Irvine, Irvine, CA",
+        "uciDesc": "Un programa intensivo de 24 semanas se centra en adquirir conocimientos y habilidades de programación técnica para crear aplicaciones web dinámicas de extremo a extremo. La informática se aplicó a Javascript.",
+        "occ": "Orange Coast College, Costa Mesa, CA",
+        "occDesc": "Cursos realizados en Informática y Sistemas de Información.",
+        "gwc": "Golden West College, Huntington Beach, CA",
+        "gwcDesc": "Cursos realizados en Informática, Sistemas de Información, Medios Digitales y Diseño Gráfico.",
+        "download": "Descargar"
+    }
+}

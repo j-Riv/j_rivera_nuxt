@@ -1,0 +1,84 @@
+{
+    "nav": {
+        "home": "HOME",
+        "resume": "RESUME"
+    },
+    "index": {
+        "about": "ABOUT ME",
+        "skills": "SKILLS",
+        "contact": "CONTACT"
+    },
+    "hero": {
+        "iam": "I AM"
+    },
+    "about": {
+        "title": "ABOUT ME",
+        "content": "My Name is José Alfredo Rivera Turcios and I am a Full Stack Developer based out of Orange County, California."
+    },
+    "skills": {
+        "title": "SKILLS",
+        "spokenLang": {
+            "title": "Fluent Languages",
+            "content": "English, Spanish"
+        },
+        "programmingLang": {
+            "title": "Programming Languages",
+            "content": "JavaScript, PHP, Python"
+        },
+        "webTech": {
+            "title": "Web Technologies",
+            "content": "Node, Vue, React, SQL, WordPress, Shopify, Git"
+        },
+        "software": {
+            "title": "Software",
+            "content": "Adobe Illustrator, Adobe InDesign, Adobe Photoshop"
+        }
+    },
+    "blog": {
+        "title": "BLOG"
+    },
+    "contact": {
+        "title": "CONTACT ME",
+        "fields": {
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Message",
+            "submit": "Submit"
+        }
+    },
+    "footer": {
+        "madeWith": "Made with"
+    },
+    "resume": {
+        "summary": "Summary",
+        "summaryText": "Versatile Full-Stack Developer with 4+ years of experience designing, developing, and managing complex e-commerce sites and internal applications. Enjoys integrating technologies to solve problems. Passionate about approaching programming challenges from different angles and collaborating with others to create meaningful web applications. Outstanding verbal and written communication skills coupled with strong project management abilities.Hard working and able to multitask efficiently.Fluent in English and Spanish.",
+        "technicalSkills": "Technical Skills",
+        "operatingSystems": "Operating Systems",
+        "programming": "Programming",
+        "applications": "Applications",
+        "experience": "Experience",
+        "fullStackDeveloper": "Full Stack Developer",
+        "suaveDate": "July 2014 - Current",
+        "suaveDesc": [
+            "Perform website design and development for Suavecito Pomade and all subsidiary companies.",
+            "Maintain brand consistency and ensure quality across multiple websites.",
+            "Use Photoshop, Illustrator and InVision to prototype website/app designs.",
+            "Specialize in creating interactive user-friendly e-commerce websites on platforms like Shopify and Wordpress.",
+            "Update and create new product templates/layouts to fit new e-commerce needs as new products are added.",
+            "Utilize tools like Trello to manage schedule and assure on-time delivery of content.",
+            "Ensure proper management of product inventory through setup and deployment of inventory software.",
+            "Develop artwork and layout for print and digital signage.",
+            "Use Adobe suite to edit and arrange photos for advertising and marketing purposes."
+        ],
+        "education": "Education",
+        "bootcampCertificate": "Bootcamp Certificate",
+        "uci": "University of California Irvine, Irvine, CA",
+        "uciDesc": "A 24-week intensive program focues on gaining knowledge and technical programming skills to build dynamic end - to - end web applications.Computer Science applied to JavaScript.",
+        "occ": "Orange Coast College, Costa Mesa, CA",
+        "occDesc": "Coursework completed in Computer Science and Information Systems.",
+        "gwc": "Golden West College, Huntington Beach, CA",
+        "gwcDesc": "Coursework completed in Computer Science, Information Systems, Digital Media, and Graphic Design.",
+        "download": "Download"
+    }
+}

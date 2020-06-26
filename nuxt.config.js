@@ -1,3 +1,5 @@
+require('dotenv').config()
+const collect = require('collect.js')
 import colors from 'vuetify/es5/util/colors'
 
 export default {
@@ -24,7 +26,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Comfortaa' }
     ]
   },
   /*
@@ -36,8 +39,52 @@ export default {
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
+  router: {
+    middleware: 'i18n'
+  },
   plugins: [
+    '~/plugins/i18n.js'
   ],
+  generate: {
+    // routes: ['/', '/es', '/about', '/es/about']
+    routes: async () => {
+      let { data } = await axios.post(process.env.COCKPIT_POSTS_URL,
+        JSON.stringify({
+          filter: { published: true },
+          sort: { _created: -1 },
+          populate: 1
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' }
+        })
+      const collection = collect(data.entries)
+
+      let tags = collection.map(post => post.tags)
+        .flatten()
+        .unique()
+        .map(tag => {
+          let payload = collection.filter(item => {
+            return collect(item.tags).contains(tag)
+          }).all()
+
+          return {
+            route: `blog/category/${tag}`,
+            payload: payload
+          }
+        }).all()
+
+      let posts = collection.map(post => {
+        return {
+          route: post.title_slug,
+          payload: post
+        }
+      }).all()
+
+      let r = ['/', '/es', '/about', '/es/about', '/resume', '/es/resume']
+
+      return r.concat(posts).concat(tags)
+    }
+  },
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
@@ -48,12 +95,21 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxt/http',
+    '@nuxtjs/axios'
   ],
+  dotenv: {
+    // module options
+  },
+  http: {
+    // proxyHeaders: false
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -64,7 +120,7 @@ export default {
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.red.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,

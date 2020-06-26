@@ -1,18 +1,24 @@
 {
-  "name": "jriv-blog",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "export": "nuxt export",
-    "serve": "nuxt serve"
-  },
-  "dependencies": {
-    "nuxt": "^2.13.0"
-  },
-  "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.2"
-  }
+    "name": "jriv-blog",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt --hostname arch --port 3333",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "export": "nuxt export",
+        "serve": "nuxt serve"
+    },
+    "dependencies": {
+        "@nuxt/http": "^0.5.5",
+        "@nuxtjs/axios": "^5.11.0",
+        "@nuxtjs/dotenv": "^1.4.1",
+        "nuxt": "^2.13.0",
+        "vue-i18n": "^8.18.2"
+    },
+    "devDependencies": {
+        "@nuxtjs/vuetify": "^1.11.2",
+        "collect.js": "^4.27.3"
+    }
 }

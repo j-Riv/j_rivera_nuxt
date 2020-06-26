@@ -1,0 +1,83 @@
+<template>
+  <v-sheet
+    id="contact"
+    class="grey darken-3"
+    dark
+    tag="section"
+    tile
+  >
+    <div class="py-12"></div>
+
+    <v-container>
+      <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
+        {{ this.$t('contact.title') }}
+      </h2>
+
+      <v-responsive
+        class="mx-auto mb-12"
+        width="56"
+      >
+        <v-divider class="mb-1"></v-divider>
+
+        <v-divider></v-divider>
+      </v-responsive>
+
+      <v-theme-provider light>
+        <v-row>
+          <v-col cols="12">
+            <v-text-field
+              flat
+              :label="this.$t('contact.fields.name') + '*'"
+              solo
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="12">
+            <v-text-field
+              flat
+              :label="this.$t('contact.fields.email') + '*'"
+              solo
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="12">
+            <v-text-field
+              flat
+              :label="this.$t('contact.fields.subject') + '*'"
+              solo
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="12">
+            <v-textarea
+              flat
+              :label="this.$t('contact.fields.message') + '*'"
+              solo
+            ></v-textarea>
+          </v-col>
+
+          <v-col
+            class="mx-auto"
+            cols="auto"
+          >
+            <v-btn
+              color="primary"
+              x-large
+            >
+              {{ this.$t('contact.fields.submit') }}
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-theme-provider>
+    </v-container>
+
+    <div class="py-12"></div>
+  </v-sheet>
+</template>
+
+<script>
+  export default {
+    name: 'Contact',
+    // data () {}
+  }
+</script>
