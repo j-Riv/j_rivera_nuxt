@@ -131,6 +131,9 @@ export default {
       }
     }
   },
+  serverMiddleware: [
+    '~/api/contact'
+  ],
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
