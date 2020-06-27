@@ -51,7 +51,9 @@
         </v-menu>
         <v-toolbar-items 
           class="d-none d-md-flex"
-          v-if="$nuxt.$route.path === '/' || $nuxt.$route.path === '/es/'"
+          v-if="$nuxt.$route.path === '/' || 
+            $nuxt.$route.path === '/es/' ||
+            $nuxt.$route.path === '/es'"
         >
           <v-btn text @click="$vuetify.goTo('#about-me')">
             {{ this.$t('index.about') }}
@@ -68,10 +70,10 @@
           class="d-none d-md-flex"
           v-else
         >
-          <v-btn text to="/" v-if="$t.locale === 'en'">
+          <v-btn text to="/" v-if="this.$t.locale === 'en'">
             {{ this.$t('nav.home') }}
           </v-btn>
-          <v-btn text to="/es" v-else>
+          <v-btn text to="/es/" v-else>
             {{ this.$t('nav.home') }}
           </v-btn>
           <NavBar/>

@@ -25,7 +25,7 @@
 
       <v-list-item to="/" v-if="$i18n.locale === 'en'">
         <v-list-item-icon>
-          <v-icon> </v-icon>
+          <v-icon class="mdi mdi-home-export-outline"/>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -35,7 +35,7 @@
 
       <v-list-item to="/" v-else>
         <v-list-item-icon>
-          <v-icon> </v-icon>
+          <v-icon class="mdi mdi-home-export-outline"/>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -47,7 +47,7 @@
 
       <v-list-item to="/resume" v-if="$i18n.locale === 'en'">
         <v-list-item-icon>
-          <v-icon> </v-icon>
+          <v-icon class="mdi mdi-earth"/>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -57,7 +57,7 @@
 
       <v-list-item to="/resume" v-else>
         <v-list-item-icon>
-          <v-icon> </v-icon>
+          <v-icon class="mdi mdi-earth"/>
         </v-list-item-icon>
 
         <v-list-item-content>
@@ -67,7 +67,7 @@
 
       <v-list-item to="/blog">
         <v-list-item-icon>
-          <v-icon> </v-icon>
+          <v-icon class="mdi mdi-file-document-outline"/>
         </v-list-item-icon>
 
         <v-list-item-content>
