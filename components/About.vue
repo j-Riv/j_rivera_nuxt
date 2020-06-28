@@ -30,7 +30,7 @@
 
       <div></div>
 
-      <v-btn
+      <!-- <v-btn
         color="grey"
         href="https://vuetifyjs.com"
         outlined
@@ -39,7 +39,9 @@
         <span class="grey--text text--darken-1 font-weight-bold">
           Vuetify Documentation
         </span>
-      </v-btn>
+      </v-btn> -->
+      <SocialNav :center="true"/>
+
     </v-container>
 
     <div class="py-12"></div>
@@ -47,7 +49,12 @@
 </template>
 
 <script>
+import SocialNav from './SocialNav'
+
 export default {
-  name: 'About'
+  name: 'About',
+  components: {
+    SocialNav
+  }
 }
 </script>

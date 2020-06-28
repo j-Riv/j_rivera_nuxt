@@ -1,5 +1,6 @@
 <template>
   <v-toolbar-items>
+    <v-spacer v-if="center"/>
     <v-btn 
       text 
       href="https://www.linkedin.com/in/jose-alfredo-rivera-turcios/"
@@ -7,7 +8,7 @@
       target="_blank"
       title="Connect with me on Linked In"
     >
-      <i class="mdi mdi-linkedin"></i>
+      <v-icon sizee="25" class="mdi mdi-linkedin"></v-icon>
     </v-btn>
     <v-btn 
       text 
@@ -16,7 +17,7 @@
       target="_blank"
       title="Follow me on GitHub"
     >
-      <i class="mdi mdi-github"></i>
+      <v-icon soze="25" class="mdi mdi-github"></v-icon>
     </v-btn>
     <v-btn 
       text 
@@ -25,13 +26,15 @@
       target="_blank"
       title="Follow me on Stack Overflow"
       >
-        <i class="mdi mdi-stack-overflow"></i>
+        <v-icon size="25" class="mdi mdi-stack-overflow"></v-icon>
       </v-btn>
+      <v-spacer v-if="center"/>
   </v-toolbar-items>
 </template>
 
 <script>
 export default {
-  name: 'SocialNav'
+  name: 'SocialNav',
+  props: ['center']
 }
 </script>
