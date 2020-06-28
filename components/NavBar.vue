@@ -1,6 +1,6 @@
 <template>
   <v-toolbar-items>
-    <v-btn text to="/resume" v-if="$t.locale === 'en'">
+    <v-btn text to="/resume" v-if="this.$i18n.locale === 'en'">
       {{ this.$t('nav.resume') }}
     </v-btn>
     <v-btn text to="/es/resume" v-else>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// console.log(this.$t.locale)
 export default {
   name: 'NavBar'
 }

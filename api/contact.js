@@ -7,27 +7,32 @@ app.use(express.json())
 
 app.post('/', (req, res) => {
   const body = req.body
-  sendMail(body.name, body.email, body.subject, body.message)
-  res.status(200).json({ 'message': 'OH YEAH' })
-})
-
-const sendMail = (name, email, subject, message) => {
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: '465',
     secure: true,
     auth: {
       user: process.env.GMAIL,
-      pass: process.env.GMAIL_APP_PASSWORD
+      pass: process.env.GMAIL_APP_PASSWOR
     }
   })
+  const htmlMessage = `<p>Name: ${body.name}</p><p>Message: ${body.message}</p>`
+
   transporter.sendMail({
-    from: email,
+    from: body.email,
     to: 'jose.alfredo.rivera@gmail.com',
-    subject: subject,
-    text: 'Name: ' + name + 'Message' + message
-  })
-}
+    replyTo: body.email,
+    subject: body.subject,
+    html: htmlMessage
+  },
+    (error, info) => {
+      if (error) {
+        res.status(400).json({ error: 'Error in sending email' })
+      } else {
+        res.status(200).json({ msg: 'Success' })
+      }
+    })
+})
 
 export default {
   path: '/api/contact',

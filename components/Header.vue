@@ -37,7 +37,7 @@
             </v-toolbar-items>
           </template>
           <v-list v-if="!$route.path.includes('blog')">
-            <v-list-item v-if="$i18n.locale === 'es'">
+            <v-list-item v-if="this.$i18n.locale === 'es'">
               <v-btn text :to="$route.fullPath.replace(/^\/[^\/]+/, '')"> 
                 <v-list-item-title>En</v-list-item-title>
               </v-btn>
@@ -70,7 +70,7 @@
           class="d-none d-md-flex"
           v-else
         >
-          <v-btn text to="/" v-if="this.$t.locale === 'en'">
+          <v-btn text to="/" v-if="this.$i18n.locale === 'en'">
             {{ this.$t('nav.home') }}
           </v-btn>
           <v-btn text to="/es/" v-else>

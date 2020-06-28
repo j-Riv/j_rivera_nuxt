@@ -23,7 +23,7 @@
 
     <v-list dense>
 
-      <v-list-item to="/" v-if="$i18n.locale === 'en'">
+      <v-list-item to="/" v-if="this.$i18n.locale === 'en'">
         <v-list-item-icon>
           <v-icon class="mdi mdi-home-export-outline"/>
         </v-list-item-icon>
@@ -45,7 +45,7 @@
 
       <DrawerSubNav v-if="$route.path ==='/' || $route.path === '/es/'"/>
 
-      <v-list-item to="/resume" v-if="$i18n.locale === 'en'">
+      <v-list-item to="/resume" v-if="this.$i18n.locale === 'en'">
         <v-list-item-icon>
           <v-icon class="mdi mdi-earth"/>
         </v-list-item-icon>
