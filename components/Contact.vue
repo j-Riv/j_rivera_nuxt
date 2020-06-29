@@ -84,7 +84,7 @@
               x-large
               @click="reset"
             >
-              Reset
+              {{ this.$t('contact.fields.reset') }}
             </v-btn>
             </v-col>
           </v-row>
@@ -98,14 +98,14 @@
           type="success"
           v-if="success"
         >
-          Email sent successfully
+          {{ this.$t('contact.fields.success') }}
         </v-alert>
         <v-alert 
           class="mt-4"
           type="error"
           v-if="error"
         >
-          Error in sending email
+          {{ this.$t('contact.fields.error') }}
         </v-alert>
     </v-container>
 

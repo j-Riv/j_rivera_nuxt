@@ -1,6 +1,6 @@
 require('dotenv').config()
-import express from 'express'
-import nodemailer from 'nodemailer'
+const express = require('express')
+const nodemailer = require('nodemailer')
 
 const app = express()
 app.use(express.json())

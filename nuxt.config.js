@@ -1,6 +1,7 @@
 require('dotenv').config()
 const collect = require('collect.js')
 import colors from 'vuetify/es5/util/colors'
+import { VuetifyProgressiveModule } from 'vuetify-loader'
 
 export default {
   /*
@@ -129,7 +130,8 @@ export default {
           success: colors.green.accent3
         }
       }
-    }
+    },
+    progressiveImages: true
   },
   serverMiddleware: [
     '~/api/contact'
@@ -139,5 +141,28 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    //...
+    extend(config, ctx) {
+      ctx.loaders.vue.compilerOptions = {
+        modules: [VuetifyProgressiveModule]
+      }
+
+      /** Alter img loading rules to use vuetify progressive loader */
+      const imgRule = config.module.rules.find(
+        r => r.test.toString() === '/\\.(png|jpe?g|gif|svg|webp)$/i');
+      imgRule.oneOf = [imgRule.use[0]]
+      imgRule.oneOf.unshift({
+        test: /\.(png|jpe?g|gif)$/,
+        resourceQuery: /vuetify-preload/,
+        use: [
+          'vuetify-loader/progressive-loader',
+          {
+            loader: 'url-loader',
+            options: { limit: 8000 }
+          }
+        ]
+      })
+      delete (imgRule.use)
+    }
   }
 }

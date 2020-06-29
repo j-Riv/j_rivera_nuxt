@@ -41,10 +41,13 @@
         "title": "CONTÁCTAME",
         "fields": {
             "name": "Nombre",
-            "email": "Email",
+            "email": "Correo electrónico",
             "subject": "Sujeto",
             "message": "Mensaje",
-            "submit": "Enviar"
+            "submit": "Enviar",
+            "reset": "Reiniciar",
+            "success": "Correo electrónico enviado con éxito",
+            "error": "Error al enviar correo electrónico"
         }
     },
     "footer": {

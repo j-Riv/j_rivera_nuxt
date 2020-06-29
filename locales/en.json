@@ -44,7 +44,10 @@
             "email": "Email",
             "subject": "Subject",
             "message": "Message",
-            "submit": "Submit"
+            "submit": "Submit",
+            "reset": "Reset",
+            "success": "Email sent successfully",
+            "error": "Error in sending email"
         }
     },
     "footer": {
