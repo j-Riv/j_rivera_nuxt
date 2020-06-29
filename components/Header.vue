@@ -14,7 +14,7 @@
           <v-img
             contain
             max-height="70%"
-            src="/jriv.png"
+            src="/images/jriv.png"
           ></v-img>
         </v-avatar>
       </nuxt-link>

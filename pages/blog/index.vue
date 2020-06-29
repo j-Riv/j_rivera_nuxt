@@ -1,6 +1,6 @@
 <template>
   <section id="blog">
-    <div class="py-12"></div>
+    <!-- <div class="py-12"></div> -->
 
     <v-container>
       <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
@@ -11,9 +11,9 @@
         class="mx-auto mb-12"
         width="56"
       >
-        <v-divider class="mb-1"></v-divider>
+        <v-divider class="mb-1" color="white"></v-divider>
 
-        <v-divider></v-divider>
+        <v-divider color="white"></v-divider>
       </v-responsive>
 
       <v-row>
@@ -34,6 +34,20 @@
             class="font-weight-black mb-4 text-uppercase"
             v-text="post.title"
           ></h3>
+
+          <v-chip
+            class="ma-2"
+            color="primary"
+            text-color="white"
+            v-for="(tag, key) in post.tags"
+            :key="key"
+            :to="'/blog/category/' + tag"
+          >
+            <v-avatar left>
+              <v-icon>mdi-feature-search-outline</v-icon>
+            </v-avatar>
+            {{ tag }}
+          </v-chip>
 
           <div
             class="title font-weight-light mb-5"

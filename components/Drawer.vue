@@ -6,7 +6,7 @@
   >
     <v-list-item>
       <v-list-item-avatar>
-        <v-img src="/j-riv.jpg"></v-img>
+        <v-img src="/images/iam-jriv.jpeg"></v-img>
       </v-list-item-avatar>
 
       <v-list-item-content>
@@ -14,7 +14,7 @@
         <v-img
           contain
           max-height="50px"
-          src="/jriv.png"
+          src="/images/jriv.png"
         ></v-img>
       </v-list-item-content>
     </v-list-item>

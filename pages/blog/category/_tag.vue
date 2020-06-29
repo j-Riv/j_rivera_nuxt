@@ -1,6 +1,6 @@
 <template>
   <v-container id="blog">
-    <div class="py-12"></div>
+    <!-- <div class="py-12"></div> -->
 
     <v-container>
       <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
@@ -11,9 +11,9 @@
         class="mx-auto mb-12"
         width="56"
       >
-        <v-divider class="mb-1"></v-divider>
+        <v-divider class="mb-1" color="white"></v-divider>
 
-        <v-divider></v-divider>
+        <v-divider color="white"></v-divider>
       </v-responsive>
 
       <v-row>
@@ -61,9 +61,9 @@ export default {
     if (payload) {
       return { posts: payload, category: params.tag }
     } else {
-      let { data } = await app.$axios.get(process.env.COCKPIT_POSTS_URL,
+      let { data } = await app.$axios.post(process.env.COCKPIT_POSTS_URL,
       JSON.stringify({
-          filter: { published: true, tags: { $has:params.tag } },
+          filter: { published: true, tags: { $in:[params.tag] } },
           sort: {_created:-1},
           populate: 1
         }),

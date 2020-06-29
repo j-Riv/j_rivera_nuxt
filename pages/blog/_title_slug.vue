@@ -9,7 +9,20 @@
         :alt="post.title"
       ></v-img>
       <div class="text-gray-600 font-bold text-sm tracking-wide">
-        <a v-for="(tag, key) in post.tags" :key="key" :href="'/blog/category/'+tag" class="ml-1">{{ tag }}</a>
+        <!-- <a v-for="(tag, key) in post.tags" :key="key" :href="'/blog/category/'+tag" class="ml-1">{{ tag }}</a> -->
+        <v-chip
+          class="ma-2"
+          color="primary"
+          text-color="white"
+          v-for="(tag, key) in post.tags"
+          :key="key"
+          :to="'/blog/category/' + tag"
+        >
+          <v-avatar left>
+            <v-icon>mdi-feature-search-outline</v-icon>
+          </v-avatar>
+          {{ tag }}
+        </v-chip>
       </div>
       <h1 class="mt-2 text-3xl font-bold">
         {{ post.title }}
