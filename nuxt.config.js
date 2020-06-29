@@ -105,11 +105,11 @@ export default {
     '@nuxt/http',
     '@nuxtjs/axios'
   ],
-  dotenv: {
-    // module options
-  },
-  http: {
-    // proxyHeaders: false
+  env: {
+    cockpitPostsUrl: process.env.COCKPIT_POSTS_URL,
+    cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL || 'http://cockpit.localhost/storage/uploads/',,
+    gmail: process.env.GMAIL,
+    gmailAppPassword: process.env.GMAIL_APP_PASSWORD
   },
   /*
   ** vuetify module configuration
@@ -141,7 +141,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    //...
     extend(config, ctx) {
       ctx.loaders.vue.compilerOptions = {
         modules: [VuetifyProgressiveModule]

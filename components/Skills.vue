@@ -48,17 +48,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'Skills',
-    data () {
-      return {
-        skills: [
-          [this.$t('skills.spokenLang.title'), this.$t('skills.spokenLang.content')],
-          [this.$t('skills.programmingLang.title'), this.$t('skills.programmingLang.content')],
-          [this.$t('skills.webTech.title'), this.$t('skills.webTech.content')],
-          [this.$t('skills.software.title'), this.$t('skills.software.content')]
-        ]
-      }
+export default {
+  name: 'Skills',
+  data () {
+    return {
+      skills: [
+        [this.$t('skills.spokenLang.title'), this.$t('skills.spokenLang.content')],
+        [this.$t('skills.programmingLang.title'), this.$t('skills.programmingLang.content')],
+        [this.$t('skills.webTech.title'), this.$t('skills.webTech.content')],
+        [this.$t('skills.software.title'), this.$t('skills.software.content')]
+      ]
     }
   }
+}
 </script>

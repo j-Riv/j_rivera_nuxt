@@ -35,12 +35,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'DrawerSubNav',
-    methods: {
-      closeDrawer() {
-        this.$store.commit('SET_DRAWER', !this.$store.state.drawer)
-      }
+export default {
+  name: 'DrawerSubNav',
+  methods: {
+    closeDrawer() {
+      this.$store.commit('SET_DRAWER', !this.$store.state.drawer)
     }
   }
+}
 </script>

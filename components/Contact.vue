@@ -114,58 +114,58 @@
 </template>
 
 <script>
-  export default {
-    name: 'Contact',
-    data: () => ({
-      valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 25) || 'Name must be less than 25 characters',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-      subject: '',
-      subjectRules: [
-        v=> !!v || 'Subject is required',
-        v => (v && v.length <= 25) || 'Subject must be less than 25 characters',
-      ],
-      message: '',
-      messageRules: [
-        v=> !!v || 'Subject is required',
-        v => (v && v.length <= 200) || 'Subject must be less than 200 characters',
-      ],
-      success: false,
-      error: false
-    }),
-    methods: {
-      reset () {
-        this.$refs.form.reset()
-      },
-      submit () {
-        const val = this.$refs.form.validate()
-        if (val) {
-          const data = {
-            name: this.name,
-            email: this.email,
-            subject: this.subject,
-            message: this.message
-          }
-          this.$axios.post('/api/contact', data)
-            .then((response) => {
-              console.log('Success')
-              this.success = true
-              setTimeout(() => this.success = false, 3000)
-            }, (error) => {
-              console.log('Error')
-              this.error = true
-              setTimeout(() => this.error = false, 3000)
-            })
+export default {
+  name: 'ContactSection',
+  data: () => ({
+    valid: true,
+    name: '',
+    nameRules: [
+      v => !!v || 'Name is required',
+      v => (v && v.length <= 25) || 'Name must be less than 25 characters',
+    ],
+    email: '',
+    emailRules: [
+      v => !!v || 'E-mail is required',
+      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+    ],
+    subject: '',
+    subjectRules: [
+      v=> !!v || 'Subject is required',
+      v => (v && v.length <= 25) || 'Subject must be less than 25 characters',
+    ],
+    message: '',
+    messageRules: [
+      v=> !!v || 'Subject is required',
+      v => (v && v.length <= 200) || 'Subject must be less than 200 characters',
+    ],
+    success: false,
+    error: false
+  }),
+  methods: {
+    reset () {
+      this.$refs.form.reset()
+    },
+    submit () {
+      const val = this.$refs.form.validate()
+      if (val) {
+        const data = {
+          name: this.name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message
         }
+        this.$axios.post('/api/contact', data)
+          .then((response) => {
+            console.log('Success')
+            this.success = true
+            setTimeout(() => this.success = false, 3000)
+          }, (error) => {
+            console.log('Error')
+            this.error = true
+            setTimeout(() => this.error = false, 3000)
+          })
       }
     }
   }
+}
 </script>

@@ -13,7 +13,7 @@ app.post('/', (req, res) => {
     secure: true,
     auth: {
       user: process.env.GMAIL,
-      pass: process.env.GMAIL_APP_PASSWOR
+      pass: process.env.GMAIL_APP_PASSWORD
     }
   })
   const htmlMessage = `<p>Name: ${body.name}</p><p>Message: ${body.message}</p>`

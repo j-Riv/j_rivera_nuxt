@@ -3,7 +3,7 @@
   <section>
     <article class="my-8">
       <v-img
-        :src="'http://cockpit.localhost/storage/uploads/' + post.image.path"
+        :src="process.env.cockpitStorageUrl + post.image.path"
         max-width="100%"
         class="mb-4"
         :alt="post.title"
@@ -27,7 +27,7 @@
       <h1 class="mt-2 text-3xl font-bold">
         {{ post.title }}
       </h1>
-      <div class="mt-4" v-html="post.meta_description + '\n' + post.content">
+      <div class="mt-4" v-html="post.content">
       </div>
     </article>
   </section>
@@ -36,11 +36,23 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: post.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: post.meta_description
+        }
+      ]
+    }
+  },
   async asyncData ({ app, params, error, payload }) {
     if (payload) {
       return { post: payload }
     } else {
-      let { data } = await app.$axios.post(process.env.COCKPIT_POSTS_URL,
+      let { data } = await app.$axios.post(process.env.cockpitPostsUrl,
       JSON.stringify({
           filter: { published: true, title_slug: params.title_slug },
           sort: {_created:-1},

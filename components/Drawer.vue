@@ -81,31 +81,31 @@
 </template>
 
 <script>
-  import DrawerSubNav from './DrawerSubNav'
+import DrawerSubNav from './DrawerSubNav'
 
-  export default {
-    name: 'Drawer',
-    data () {
-      return {
-        items: [
-          { index: false, title: this.$t('nav.home'), icon: '' },
-          { index: false, title: this.$t('nav.resume'), icon: '' },
-          { index: false, title: 'BLOG', icon: '' }
-        ],
-      }
-    },
-    computed: {
-      drawer: {
-        get () {
-          return this.$store.state.drawer
-        },
-        set (val) {
-          this.$store.commit('SET_DRAWER', val)
-        }
-      }
-    },
-    components: {
-      DrawerSubNav
+export default {
+  name: 'Drawer',
+  data () {
+    return {
+      items: [
+        { index: false, title: this.$t('nav.home'), icon: '' },
+        { index: false, title: this.$t('nav.resume'), icon: '' },
+        { index: false, title: 'BLOG', icon: '' }
+      ],
     }
+  },
+  computed: {
+    drawer: {
+      get () {
+        return this.$store.state.drawer
+      },
+      set (val) {
+        this.$store.commit('SET_DRAWER', val)
+      }
+    }
+  },
+  components: {
+    DrawerSubNav
   }
+}
 </script>

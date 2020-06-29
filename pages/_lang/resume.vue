@@ -77,7 +77,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Versatile Full-Stack Developer with 4+ years of experience designing, developing, and managing complex e-commerce sites and internal applications. Enjoys integrating technologies to solve problems. Passionate about approaching programming challenges from different angles and collaborating with others to create meaningful web applications.'
+          content: this.$t('resume.summary')
         }
       ]
     }

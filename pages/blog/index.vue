@@ -24,7 +24,7 @@
           md="4"
         >
           <v-img
-            :src="'http://cockpit.localhost/storage/uploads/' + post.image.path"
+            :src="process.env.cockpitStorageUrl + post.image.path"
             class="mb-4"
             height="275"
             max-width="100%"
@@ -75,8 +75,20 @@ export default {
   data () {
     articles: []
   },
+  head() {
+    return {
+      title: 'Blog',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My name is José Alfredo Rivera Turcios and I build things on the internet.'
+        }
+      ]
+    }
+  },
   async asyncData ({ $axios }) {
-    const { data } = await $axios.get(process.env.COCKPIT_POSTS_URL,
+    const { data } = await $axios.get(process.env.cockpitPostsUrl,
     JSON.stringify({
         filter: { published: true },
         sort: {_created:-1},

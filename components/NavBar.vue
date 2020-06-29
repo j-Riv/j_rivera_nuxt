@@ -13,7 +13,6 @@
 </template>
 
 <script>
-// console.log(this.$t.locale)
 export default {
   name: 'NavBar'
 }

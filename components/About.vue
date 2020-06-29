@@ -52,7 +52,7 @@
 import SocialNav from './SocialNav'
 
 export default {
-  name: 'About',
+  name: 'AboutSection',
   components: {
     SocialNav
   }

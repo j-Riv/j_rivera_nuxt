@@ -57,6 +57,18 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: post.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: post.meta_description
+        }
+      ]
+    }
+  },
   async asyncData ({ app, params, error, payload }) {
     if (payload) {
       return { posts: payload, category: params.tag }
