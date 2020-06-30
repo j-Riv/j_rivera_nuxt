@@ -12,9 +12,9 @@
         class="mx-auto mb-12"
         width="56"
       >
-        <v-divider class="mb-1"></v-divider>
+        <v-divider class="mb-1" color="white"></v-divider>
 
-        <v-divider></v-divider>
+        <v-divider color="white"></v-divider>
       </v-responsive>
 
       <v-row>
@@ -63,28 +63,28 @@
 </template>
 
 <script>
-  export default {
-    name: 'Features',
-    data () {
-      return {
-        features: [
-          {
-            icon: 'mdi-account-group-outline',
-            title: 'Vibrant Community',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-          },
-          {
-            icon: 'mdi-update',
-            title: 'Frequent Updates',
-            text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
-          },
-          {
-            icon: 'mdi-shield-outline',
-            title: 'Long-term Support',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
-          },
-        ]
-      }
+export default {
+  name: 'FeaturesSection',
+  data () {
+    return {
+      features: [
+        {
+          icon: 'mdi-account-group-outline',
+          title: 'Vibrant Community',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+        },
+        {
+          icon: 'mdi-update',
+          title: 'Frequent Updates',
+          text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+        },
+        {
+          icon: 'mdi-shield-outline',
+          title: 'Long-term Support',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+        },
+      ]
     }
   }
+}
 </script>

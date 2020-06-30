@@ -2,19 +2,29 @@
   <section id="skills">
     <v-parallax
       :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-      src="/iphone-on-notebook-beside-laptop.jpg"
+      src="/images/iphone-on-notebook-beside-laptop.jpg"
     >
       <v-container fill-height>
         <v-row>
           <v-col class="text-center">
-            <h2 class="display-2 font-weight-bold mb-3">
+            <h2 class="display-2 font-weight-bold mb-1">
               {{ this.$t('skills.title') }}
             </h2>
+
+            <v-responsive
+              class="mx-auto mb-12"
+              width="56"
+            >
+              <v-divider class="mb-1" color="white"></v-divider>
+
+              <v-divider color="white"></v-divider>
+            </v-responsive>
+
           </v-col>
         </v-row>
         <v-row class="mx-auto">
           <v-col
-            v-for="[value, title] of skills"
+            v-for="[title, content] of skills"
             :key="title"
             cols="12"
             md="3"
@@ -22,12 +32,12 @@
             <div class="text-center">
               <div
                 class="display-1 font-weight-black mb-4"
-                v-text="value"
+                v-text="title"
               ></div>
 
               <div
-                class="title font-weight-regular text-uppercase"
-                v-text="title"
+                class="font-weight-regular text-uppercase"
+                v-text="content"
               ></div>
             </div>
           </v-col>
@@ -38,17 +48,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'Skills',
-    data () {
-      return {
-        skills: [
-          [this.$t('skills.spokenLang.title'), this.$t('skills.spokenLang.content')],
-          [this.$t('skills.programmingLang.title'), this.$t('skills.programmingLang.content')],
-          [this.$t('skills.webTech.title'), this.$t('skills.webTech.content')],
-          [this.$t('skills.software.title'), this.$t('skills.software.content')]
-        ]
-      }
+export default {
+  name: 'Skills',
+  data () {
+    return {
+      skills: [
+        [this.$t('skills.spokenLang.title'), this.$t('skills.spokenLang.content')],
+        [this.$t('skills.programmingLang.title'), this.$t('skills.programmingLang.content')],
+        [this.$t('skills.webTech.title'), this.$t('skills.webTech.content')],
+        [this.$t('skills.software.title'), this.$t('skills.software.content')]
+      ]
     }
   }
+}
 </script>

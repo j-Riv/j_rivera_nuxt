@@ -39,12 +39,16 @@
     },
     "contact": {
         "title": "CONTÁCTAME",
+        "message": "¿Quieres construir algo juntos? ¡Eso es genial! ¡Envíame un correo electrónico y te responderé lo antes posible!",
         "fields": {
             "name": "Nombre",
-            "email": "Email",
+            "email": "Correo electrónico",
             "subject": "Sujeto",
             "message": "Mensaje",
-            "submit": "Enviar"
+            "submit": "Enviar",
+            "reset": "Reiniciar",
+            "success": "Correo electrónico enviado con éxito",
+            "error": "Error al enviar correo electrónico"
         }
     },
     "footer": {

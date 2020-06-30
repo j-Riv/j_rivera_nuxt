@@ -17,10 +17,14 @@
         class="mx-auto mb-12"
         width="56"
       >
-        <v-divider class="mb-1"></v-divider>
+        <v-divider class="mb-1" color="white"></v-divider>
 
-        <v-divider></v-divider>
+        <v-divider color="white"></v-divider>
       </v-responsive>
+
+      <p class="font-weight-regular mb-3 text-center">
+        {{ this.$t('contact.message') }}
+      </p>
 
       <v-theme-provider dark>
         <v-form
@@ -84,7 +88,7 @@
               x-large
               @click="reset"
             >
-              Reset
+              {{ this.$t('contact.fields.reset') }}
             </v-btn>
             </v-col>
           </v-row>
@@ -98,14 +102,14 @@
           type="success"
           v-if="success"
         >
-          Email sent successfully
+          {{ this.$t('contact.fields.success') }}
         </v-alert>
         <v-alert 
           class="mt-4"
           type="error"
           v-if="error"
         >
-          Error in sending email
+          {{ this.$t('contact.fields.error') }}
         </v-alert>
     </v-container>
 
@@ -114,58 +118,61 @@
 </template>
 
 <script>
-  export default {
-    name: 'Contact',
-    data: () => ({
-      valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 25) || 'Name must be less than 25 characters',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-      subject: '',
-      subjectRules: [
-        v=> !!v || 'Subject is required',
-        v => (v && v.length <= 25) || 'Subject must be less than 25 characters',
-      ],
-      message: '',
-      messageRules: [
-        v=> !!v || 'Subject is required',
-        v => (v && v.length <= 200) || 'Subject must be less than 200 characters',
-      ],
-      success: false,
-      error: false
-    }),
-    methods: {
-      reset () {
-        this.$refs.form.reset()
-      },
-      submit () {
-        const val = this.$refs.form.validate()
-        if (val) {
-          const data = {
-            name: this.name,
-            email: this.email,
-            subject: this.subject,
-            message: this.message
-          }
-          this.$axios.post('/api/contact', data)
-            .then((response) => {
-              console.log('Success')
-              this.success = true
-              setTimeout(() => this.success = false, 3000)
-            }, (error) => {
-              console.log('Error')
-              this.error = true
-              setTimeout(() => this.error = false, 3000)
-            })
+export default {
+  name: 'ContactSection',
+  data: () => ({
+    valid: true,
+    name: '',
+    nameRules: [
+      v => !!v || 'Name is required',
+      v => (v && v.length <= 25) || 'Name must be less than 25 characters',
+    ],
+    email: '',
+    emailRules: [
+      v => !!v || 'E-mail is required',
+      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+    ],
+    subject: '',
+    subjectRules: [
+      v=> !!v || 'Subject is required',
+      v => (v && v.length <= 25) || 'Subject must be less than 25 characters',
+    ],
+    message: '',
+    messageRules: [
+      v=> !!v || 'Subject is required',
+      v => (v && v.length <= 200) || 'Subject must be less than 200 characters',
+    ],
+    success: false,
+    error: false,
+    baseUrl: process.env.BASE_URL
+  }),
+  methods: {
+    reset () {
+      this.$refs.form.reset()
+    },
+    submit () {
+      const val = this.$refs.form.validate()
+      if (val) {
+        const data = {
+          name: this.name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message
         }
+        this.$axios.post(this.baseUrl + '/api/contact', data)
+          .then((response) => {
+            console.log('Success')
+            this.success = true
+            this.reset()
+            setTimeout(() => this.success = false, 4000)
+          }, (error) => {
+            console.log('Error')
+            this.error = true
+            this.reset()
+            setTimeout(() => this.error = false, 4000)
+          })
       }
     }
   }
+}
 </script>

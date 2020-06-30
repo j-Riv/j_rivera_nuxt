@@ -1,6 +1,6 @@
 require('dotenv').config()
-import express from 'express'
-import nodemailer from 'nodemailer'
+const express = require('express')
+const nodemailer = require('nodemailer')
 
 const app = express()
 app.use(express.json())
@@ -13,7 +13,7 @@ app.post('/', (req, res) => {
     secure: true,
     auth: {
       user: process.env.GMAIL,
-      pass: process.env.GMAIL_APP_PASSWOR
+      pass: process.env.GMAIL_APP_PASSWORD
     }
   })
   const htmlMessage = `<p>Name: ${body.name}</p><p>Message: ${body.message}</p>`

@@ -25,7 +25,7 @@
         class="elevation-12 mb-12"
         size="128"
       >
-        <v-img src="/j-riv.jpg"></v-img>
+        <v-img src="/images/j-riv.jpg"></v-img>
       </v-avatar>
 
       <div></div>
@@ -52,7 +52,7 @@
 import SocialNav from './SocialNav'
 
 export default {
-  name: 'About',
+  name: 'AboutSection',
   components: {
     SocialNav
   }

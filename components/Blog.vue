@@ -11,9 +11,9 @@
         class="mx-auto mb-12"
         width="56"
       >
-        <v-divider class="mb-1"></v-divider>
+        <v-divider class="mb-1" color=white></v-divider>
 
-        <v-divider></v-divider>
+        <v-divider color=white></v-divider>
       </v-responsive>
 
       <v-row>
@@ -24,7 +24,7 @@
           md="4"
         >
           <v-img
-            :src="'http://cockpit.localhost/storage/uploads/' + post.image.path"
+            :src="cockpitStorageUrl + post.image.path"
             class="mb-4"
             height="275"
             max-width="100%"
@@ -57,6 +57,12 @@
 
 <script>
 export default {
+  name: 'BlogSection',
+  data () {
+    return {
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+    }
+  },
   props: ['articles']
 }
 </script>
