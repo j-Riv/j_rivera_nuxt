@@ -26,7 +26,7 @@ export default {
   },
   head() {
     return {
-      title: 'I am j-Riv',
+      title: this.$t('index.title'),
       meta: [
         {
           hid: 'description',
