@@ -2,6 +2,7 @@
     "name": "jriv-blog",
     "version": "1.0.0",
     "private": true,
+    "author": "Jose A. Rivera <jose.alfredo.rivera@gmail.com>",
     "scripts": {
         "dev": "nuxt --hostname localhost --port 3333",
         "build": "nuxt build",
