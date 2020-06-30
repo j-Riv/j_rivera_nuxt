@@ -139,7 +139,8 @@ export default {
       v => (v && v.length <= 200) || 'Subject must be less than 200 characters',
     ],
     success: false,
-    error: false
+    error: false,
+    baseUrl: process.env.BASE_URL
   }),
   methods: {
     reset () {
@@ -154,15 +155,17 @@ export default {
           subject: this.subject,
           message: this.message
         }
-        this.$axios.post('/api/contact', data)
+        this.$axios.post(this.baseUrl + '/api/contact', data)
           .then((response) => {
             console.log('Success')
             this.success = true
-            setTimeout(() => this.success = false, 3000)
+            this.reset()
+            setTimeout(() => this.success = false, 4000)
           }, (error) => {
             console.log('Error')
             this.error = true
-            setTimeout(() => this.error = false, 3000)
+            this.reset()
+            setTimeout(() => this.error = false, 4000)
           })
       }
     }

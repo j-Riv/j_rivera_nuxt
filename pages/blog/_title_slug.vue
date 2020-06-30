@@ -36,14 +36,20 @@
 
 <script>
 export default {
+  data () {
+    return {
+      post: '',
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+    }
+  },
   head() {
     return {
-      title: post.title,
+      title: this.post.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: post.meta_description
+          content: this.post.meta_description
         }
       ]
     }

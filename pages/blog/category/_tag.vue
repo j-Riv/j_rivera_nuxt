@@ -24,7 +24,7 @@
           md="4"
         >
           <v-img
-            :src="'http://cockpit.localhost/storage/uploads/' + post.image.path"
+            :src="cockpitStorageUrl + post.image.path"
             class="mb-4"
             height="275"
             max-width="100%"
@@ -57,14 +57,20 @@
 
 <script>
 export default {
+  data () {
+    return {
+      posts: [],
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+    }
+  },
   head() {
     return {
-      title: post.title,
+      title: 'Blog | Posts tagged with: ' + this.params.tag,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: post.meta_description
+          content: 'My name is José Alfredo Rivera Turcios and I build things on the internet.'
         }
       ]
     }

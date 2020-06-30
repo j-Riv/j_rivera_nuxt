@@ -4,6 +4,13 @@ import colors from 'vuetify/es5/util/colors'
 import { VuetifyProgressiveModule } from 'vuetify-loader'
 
 export default {
+  env: {
+    BASE_URL: process.env.BASE_URL,
+    COCKPIT_URL: process.env.COCKPIT_URL,
+    COCKPIT_POSTS_URL: process.env.COCKPIT_POSTS_URL,
+    GMAIL: process.env.GMAIL,
+    GMAIL_APP_PASSWORD: process.env.GMAIL_APP_PASSWORD
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -105,12 +112,6 @@ export default {
     '@nuxt/http',
     '@nuxtjs/axios'
   ],
-  env: {
-    cockpitPostsUrl: process.env.COCKPIT_POSTS_URL,
-    cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL || 'http://cockpit.localhost/storage/uploads/',,
-    gmail: process.env.GMAIL,
-    gmailAppPassword: process.env.GMAIL_APP_PASSWORD
-  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

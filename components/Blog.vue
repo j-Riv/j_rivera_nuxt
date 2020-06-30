@@ -24,7 +24,7 @@
           md="4"
         >
           <v-img
-            :src="process.env.cockpitStorageUrl + post.image.path"
+            :src="cockpitStorageUrl + post.image.path"
             class="mb-4"
             height="275"
             max-width="100%"
@@ -58,6 +58,11 @@
 <script>
 export default {
   name: 'BlogSection',
+  data () {
+    return {
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+    }
+  },
   props: ['articles']
 }
 </script>
