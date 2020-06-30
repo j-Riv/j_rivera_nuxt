@@ -10,7 +10,6 @@
         :alt="post.image_alt"
       ></v-img>
       <div class="text-gray-600 font-bold text-sm tracking-wide">
-        <!-- <a v-for="(tag, key) in post.tags" :key="key" :href="'/blog/category/'+tag" class="ml-1">{{ tag }}</a> -->
         <v-chip
           class="ma-2"
           color="primary"
