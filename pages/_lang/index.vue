@@ -26,7 +26,7 @@ export default {
   },
   head() {
     return {
-      title: 'José Alfredo Rivera Turcios',
+      title: 'I am j-Riv',
       meta: [
         {
           hid: 'description',

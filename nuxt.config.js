@@ -26,7 +26,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '%s',
+    titleTemplate: '%s - ' + 'José Alfredo Rivera Turcios',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
