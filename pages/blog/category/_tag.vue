@@ -25,9 +25,11 @@
         >
           <v-img
             :src="cockpitStorageUrl + post.image.path"
+            :lazy-src="cockpitStorageUrl + post.image_thumbnail.path"
             class="mb-4"
             height="275"
             max-width="100%"
+            :alt="post.image_alt"
           ></v-img>
 
           <h3

@@ -39,6 +39,7 @@
     },
     "contact": {
         "title": "CONTÁCTAME",
+        "message": "¿Quieres construir algo juntos? ¡Eso es genial! ¡Envíame un correo electrónico y te responderé lo antes posible!",
         "fields": {
             "name": "Nombre",
             "email": "Correo electrónico",

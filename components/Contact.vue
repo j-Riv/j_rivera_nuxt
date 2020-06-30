@@ -22,6 +22,10 @@
         <v-divider color="white"></v-divider>
       </v-responsive>
 
+      <p class="font-weight-regular mb-3 text-center">
+        {{ this.$t('contact.message') }}
+      </p>
+
       <v-theme-provider dark>
         <v-form
           ref="form"

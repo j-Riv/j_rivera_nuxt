@@ -4,9 +4,10 @@
     <article class="my-8">
       <v-img
         :src="cockpitStorageUrl + post.image.path"
+        :lazy-src="cockpitStorageUrl + post.image_thumbnail.path"
         max-width="100%"
         class="mb-4"
-        :alt="post.title"
+        :alt="post.image_alt"
       ></v-img>
       <div class="text-gray-600 font-bold text-sm tracking-wide">
         <!-- <a v-for="(tag, key) in post.tags" :key="key" :href="'/blog/category/'+tag" class="ml-1">{{ tag }}</a> -->

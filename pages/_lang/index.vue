@@ -2,7 +2,7 @@
   <div>
     <Hero/>
     <About/>
-    <Features/>
+    <!-- <Features/> -->
     <Skills/>
     <Blog :articles="posts"/>
     <Contact/>
@@ -12,7 +12,7 @@
 <script>
 import Hero from '~/components/Hero'
 import About from '~/components/About'
-import Features from '~/components/Features'
+// import Features from '~/components/Features'
 import Skills from '~/components/Skills'
 import Blog from '~/components/Blog'
 import Contact from '~/components/Contact'
@@ -49,6 +49,14 @@ export default {
     })
 
     return { posts: data.entries }
+  },
+  compoonents: {
+    Hero,
+    About,
+    // Featured,
+    Skills,
+    Blog,
+    Contact
   }
 }
 </script>
