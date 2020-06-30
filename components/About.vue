@@ -29,17 +29,7 @@
       </v-avatar>
 
       <div></div>
-
-      <!-- <v-btn
-        color="grey"
-        href="https://vuetifyjs.com"
-        outlined
-        large
-      >
-        <span class="grey--text text--darken-1 font-weight-bold">
-          Vuetify Documentation
-        </span>
-      </v-btn> -->
+      
       <SocialNav :center="true"/>
 
     </v-container>
