@@ -3,7 +3,7 @@
   <section>
     <article class="my-8">
       <v-img
-        :src="process.env.cockpitStorageUrl + post.image.path"
+        :src="cockpitStorageUrl + post.image.path"
         max-width="100%"
         class="mb-4"
         :alt="post.title"
@@ -58,7 +58,7 @@ export default {
     if (payload) {
       return { post: payload }
     } else {
-      let { data } = await app.$axios.post(process.env.cockpitPostsUrl,
+      let { data } = await app.$axios.post(process.env.COCKPIT_POSTS_URL,
       JSON.stringify({
           filter: { published: true, title_slug: params.title_slug },
           sort: {_created:-1},

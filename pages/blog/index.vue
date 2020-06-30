@@ -91,7 +91,7 @@ export default {
     }
   },
   async asyncData ({ $axios }) {
-    const { data } = await $axios.get(process.env.cockpitPostsUrl,
+    const { data } = await $axios.get(process.env.COCKPIT_POSTS_URL,
     JSON.stringify({
         filter: { published: true },
         sort: {_created:-1},

@@ -65,7 +65,7 @@ export default {
   },
   head() {
     return {
-      title: 'Blog | Posts tagged with: ' + this.params.tag,
+      title: 'Blog | Posts tagged with: ' + this.$route.params.tag,
       meta: [
         {
           hid: 'description',
