@@ -55,7 +55,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item to="/resume" v-else>
+      <v-list-item to="/es/resume" v-else>
         <v-list-item-icon>
           <v-icon class="mdi mdi-earth"/>
         </v-list-item-icon>
