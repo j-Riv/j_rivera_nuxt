@@ -1,20 +1,6 @@
-# jriv-blog
+# j-Rivera
+> A containerized Blog. Node.js Web App powered by NuxtJS, Cockpit CMS all behind a Traefik reverse proxy. Deployed to Digital Ocean.
 
-## Build Setup
+<a href="https://j-rivera.com">j-rivera.com</a>
 
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+<p>You can find the docker deployment here.</p>
