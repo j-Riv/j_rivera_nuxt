@@ -33,7 +33,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item to="/" v-else>
+      <v-list-item to="/es/" v-else>
         <v-list-item-icon>
           <v-icon class="mdi mdi-home-export-outline"/>
         </v-list-item-icon>
