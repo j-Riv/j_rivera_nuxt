@@ -41,7 +41,7 @@ export default {
     JSON.stringify({
         filter: { published: true },
         limit: 3,
-        sort: {_created: -1},
+        sort: { _created: -1 },
         populate: 1
       }),
     {
