@@ -77,3 +77,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@media screen and (min-width: 1248px) {
+  article {
+    max-width: 70%;
+    margin: auto;
+  }
+}
+</style>
