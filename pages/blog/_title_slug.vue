@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import Prism from 'prismjs'
 export default {
   data () {
     return {
@@ -53,6 +54,9 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    Prism.highlightAll()
   },
   async asyncData ({ app, params, error, payload }) {
     if (payload) {

@@ -17,8 +17,10 @@
         "express": "^4.17.1",
         "nodemailer": "^6.4.10",
         "nuxt": "^2.13.0",
+        "prismjs": "^1.21.0",
         "sharp": "^0.25.4",
-        "vue-i18n": "^8.18.2"
+        "vue-i18n": "^8.18.2",
+        "vue-prism-component": "^1.2.0"
     },
     "devDependencies": {
         "@nuxtjs/vuetify": "^1.11.2",

@@ -29,6 +29,29 @@
       </v-avatar>
 
       <div></div>
+
+      <no-ssr>
+        <prism language="javascript">
+        class Me {
+          constructor() {
+            name = "José Alfredo Rivera Turcios";
+            dob = new Date(1987, 05, 19);
+            current_location = "Garden Grove, CA";
+            job = "Developer";
+            interest = [Technology, Sports];
+            hobbies = [Beer, Coding, Tinkering]
+          }
+
+          get name() {
+            return this.name;
+          }
+
+          get dob() {
+            return this.dob.toISOString();
+          }
+        }
+        </prism>
+      </no-ssr>
       
       <SocialNav :center="true"/>
 

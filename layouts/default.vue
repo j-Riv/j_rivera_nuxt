@@ -2,9 +2,9 @@
   <v-app dark>
     <Drawer/>
     <Header/>
-    <v-content>
+    <v-main>
       <nuxt />
-    </v-content>
+    </v-main>
     <Footer/>
   </v-app>
 </template>
@@ -22,3 +22,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+code {
+  box-shadow: 0 !important;
+  &::before {
+    content: '' !important;
+  }
+}
+</style>

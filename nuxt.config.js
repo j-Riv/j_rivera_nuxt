@@ -51,7 +51,8 @@ export default {
     middleware: 'i18n'
   },
   plugins: [
-    '~/plugins/i18n.js'
+    '~/plugins/i18n.js',
+    { src: '~/plugins/prism', ssr: false }
   ],
   generate: {
     // routes: ['/', '/es', '/about', '/es/about']
