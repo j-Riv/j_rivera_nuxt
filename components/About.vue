@@ -30,7 +30,7 @@
 
       <div></div>
 
-      <no-ssr>
+      <client-only placeholder="loading...">
         <prism language="javascript">
         class Me {
           constructor() {
@@ -51,7 +51,7 @@
           }
         }
         </prism>
-      </no-ssr>
+      </client-only>
       
       <SocialNav :center="true"/>
 
