@@ -29,6 +29,24 @@
       </v-avatar>
 
       <div></div>
+
+      <client-only placeholder="loading...">
+        <prism language="javascript">
+        class Me {
+          constructor() {
+            this.name = "José Alfredo Rivera Turcios";
+            this.currentLocation = "Garden Grove, CA";
+            this.job = "Developer";
+            this.interests = ["Linux", "Technology", "Motorcycles", "Sports"];
+            this.hobbies = ["Beer", "Coding", "Tinkering"]
+          }
+
+          get name() {
+            return this.name;
+          }
+        }
+        </prism>
+      </client-only>
       
       <SocialNav :center="true"/>
 
