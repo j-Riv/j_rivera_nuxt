@@ -14,13 +14,6 @@
         <v-divider color="white"></v-divider>
       </v-responsive>
 
-      <v-responsive
-        class="mx-auto title font-weight-light mb-8"
-        max-width="720"
-      >
-      {{ this.$t('about.content') }}
-      </v-responsive>
-
       <v-avatar
         class="elevation-12 mb-12"
         size="128"
@@ -28,7 +21,12 @@
         <v-img src="/images/j-riv.jpg"></v-img>
       </v-avatar>
 
-      <div></div>
+      <v-responsive
+        class="mx-auto title font-weight-light mb-8"
+        max-width="720"
+      >
+      {{ this.$t('about.content') }}
+      </v-responsive>
 
       <client-only placeholder="loading...">
         <prism language="javascript">
@@ -48,6 +46,8 @@
         </prism>
       </client-only>
       
+      <div class="py-6"></div>
+
       <SocialNav :center="true"/>
 
     </v-container>
