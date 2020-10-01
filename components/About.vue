@@ -36,7 +36,7 @@
             this.currentLocation = "Garden Grove, CA";
             this.job = "Developer";
             this.interests = ["Linux", "Technology", "Motorcycles", "Sports"];
-            this.hobbies = ["Beer", "Coding", "Tinkering"]
+            this.hobbies = ["Beer", "Coding", "Tinkering"];
           }
 
           get name() {
