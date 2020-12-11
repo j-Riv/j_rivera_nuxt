@@ -1,8 +1,7 @@
 require('dotenv').config()
-const collect = require('collect.js')
 import colors from 'vuetify/es5/util/colors'
 import { VuetifyProgressiveModule } from 'vuetify-loader'
-import axios from 'axios'
+import getRoutes from './utils/getRoutes'
 
 export default {
   env: {
@@ -56,44 +55,7 @@ export default {
     { src: '~/plugins/prism', ssr: false }
   ],
   generate: {
-    // routes: ['/', '/es', '/about', '/es/about']
-    routes: async () => {
-      let { data } = await axios.post(process.env.COCKPIT_POSTS_URL,
-        JSON.stringify({
-          filter: { published: true },
-          sort: { _created: -1 },
-          populate: 1
-        }),
-        {
-          headers: { 'Content-Type': 'application/json' }
-        })
-      const collection = collect(data.entries)
-
-      let tags = collection.map(post => post.tags)
-        .flatten()
-        .unique()
-        .map(tag => {
-          let payload = collection.filter(item => {
-            return collect(item.tags).contains(tag)
-          }).all()
-
-          return {
-            route: `blog/category/${tag}`,
-            payload: payload
-          }
-        }).all()
-
-      let posts = collection.map(post => {
-        return {
-          route: post.title_slug,
-          payload: post
-        }
-      }).all()
-
-      let r = ['/', '/es', '/resume', '/es/resume']
-
-      return r.concat(posts).concat(tags)
-    }
+    routes: async () => getRoutes()
   },
   /*
   ** Auto import components
@@ -116,19 +78,7 @@ export default {
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://j-rivera.com',
-    routes: async () => {
-      const routes = ['/es', '/es/resume'];
-      let { data } = await axios.post(process.env.COCKPIT_POSTS_URL,
-        JSON.stringify({
-          filter: { published: true },
-          sort: { _created: -1 },
-          populate: 1
-        }),
-        {
-          headers: { 'Content-Type': 'application/json' }
-        })
-      return routes.concat(data.entries.map(blog => `blog/${blog.title_slug}`))
-    }
+    routes: async () => getRoutes()
   },
   /*
   ** vuetify module configuration
