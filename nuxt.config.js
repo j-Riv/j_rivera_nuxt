@@ -2,6 +2,7 @@ require('dotenv').config()
 const collect = require('collect.js')
 import colors from 'vuetify/es5/util/colors'
 import { VuetifyProgressiveModule } from 'vuetify-loader'
+import axios from 'axios'
 
 export default {
   env: {
@@ -89,7 +90,7 @@ export default {
         }
       }).all()
 
-      let r = ['/', '/es', '/about', '/es/about', '/resume', '/es/resume']
+      let r = ['/', '/es', '/resume', '/es/resume']
 
       return r.concat(posts).concat(tags)
     }
@@ -110,8 +111,29 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios', '@nuxtjs/sitemap'
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://j-rivera.com',
+    i18n: {
+      locales: ['en', 'es'],
+      routeNamesSeperator: '___'
+    },
+    routes: async () => {
+      const routes = ['/es', '/es/resume'];
+      let { data } = await axios.post(process.env.COCKPIT_POSTS_URL,
+        JSON.stringify({
+          filter: { published: true },
+          sort: { _created: -1 },
+          populate: 1
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' }
+        })
+      return routes.concat(data.entries.map(blog => `blog/${blog.title_slug}`))
+    }
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
