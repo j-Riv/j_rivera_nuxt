@@ -116,10 +116,6 @@ export default {
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://j-rivera.com',
-    i18n: {
-      locales: ['en', 'es'],
-      routeNamesSeperator: '___'
-    },
     routes: async () => {
       const routes = ['/es', '/es/resume'];
       let { data } = await axios.post(process.env.COCKPIT_POSTS_URL,
