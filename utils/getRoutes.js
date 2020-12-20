@@ -30,7 +30,7 @@ export default async () => {
 
   let posts = collection.map(post => {
     return {
-      route: post.title_slug,
+      route: `blog/${post.title_slug}`,
       payload: post
     }
   }).all()
