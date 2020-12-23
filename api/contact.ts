@@ -29,7 +29,7 @@ app.post('/', (req, res) => {
 
   transporter.sendMail({
     from: body.email,
-    to: 'jose.alfredo.rivera@gmail.com',
+    to: process.env.GMAIL,
     replyTo: body.email,
     subject: body.subject,
     html: htmlMessage
