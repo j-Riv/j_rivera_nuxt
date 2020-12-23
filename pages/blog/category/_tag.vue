@@ -56,12 +56,17 @@
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { Context } from '@nuxt/types'
+import Post from '~/types/post'
+import { Route } from 'vue-router'
+
+export default Vue.extend({
   data () {
     return {
-      posts: [],
-      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+      posts: {} as Post,
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL as string
     }
   },
   head() {
@@ -76,11 +81,11 @@ export default {
       ]
     }
   },
-  async asyncData ({ app, params, error, payload }) {
+  async asyncData ({ $axios, params, error, payload }: Context) {
     if (payload) {
       return { posts: payload, category: params.tag }
     } else {
-      let { data } = await app.$axios.post(process.env.COCKPIT_POSTS_URL,
+      let { data } = await $axios.post(process.env.COCKPIT_POSTS_URL,
       JSON.stringify({
           filter: { published: true, tags: { $in:[params.tag] } },
           sort: {_created:-1},
@@ -97,5 +102,5 @@ export default {
       return { posts: data.entries, category: params.tag }
     }
   }
-}
+})
 </script>
