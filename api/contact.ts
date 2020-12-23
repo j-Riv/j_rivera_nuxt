@@ -1,21 +1,30 @@
-require('dotenv').config()
-const express = require('express')
-const nodemailer = require('nodemailer')
+import express from "express";
+import nodemailer from "nodemailer";
+import SMTPTransport from "nodemailer/lib/smtp-transport";
+import dotenv from 'dotenv'
+dotenv.config()
 
-const app = express()
+const app: express.Application = express();
 app.use(express.json())
 
+interface FormData {
+  name: string,
+  email: string,
+  subject: string,
+  message: string
+}
+
 app.post('/', (req, res) => {
-  const body = req.body
-  const transporter = nodemailer.createTransport({
+  const body: FormData = req.body
+  const transporter = nodemailer.createTransport(new SMTPTransport({
     host: 'smtp.gmail.com',
-    port: '465',
+    port: 465,
     secure: true,
     auth: {
       user: process.env.GMAIL,
       pass: process.env.GMAIL_APP_PASSWORD
     }
-  })
+  }))
   const htmlMessage = `<p>Name: ${body.name}</p><p>Message: ${body.message}</p>`
 
   transporter.sendMail({
