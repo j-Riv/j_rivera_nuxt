@@ -27,6 +27,8 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@types/prismjs",
+      "@types/express",
+      "@types/nodemailer",
       "vue-i18n"
     ]
   },
