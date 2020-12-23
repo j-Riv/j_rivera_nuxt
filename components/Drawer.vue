@@ -80,10 +80,11 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-import DrawerSubNav from './DrawerSubNav'
+<script lang="ts">
+import Vue from 'vue'
+import DrawerSubNav from './DrawerSubNav.vue'
 
-export default {
+export default Vue.extend({
   name: 'Drawer',
   data () {
     return {
@@ -107,5 +108,5 @@ export default {
   components: {
     DrawerSubNav
   }
-}
+})
 </script>

@@ -119,10 +119,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 export default Vue.extend({
   name: 'ContactSection',
   data: () => ({
-    valid: true as boolean,
+    valid: true,
     name: '' as string,
     nameRules: [
       (v: string) => !!v || 'Name is required',
@@ -133,18 +134,18 @@ export default Vue.extend({
       (v: string) => !!v || 'E-mail is required',
       (v: string) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
-    subject: '',
+    subject: '' as string,
     subjectRules: [
       (v: string) => !!v || 'Subject is required',
       (v: string) => (v && v.length <= 25) || 'Subject must be less than 25 characters',
     ],
-    message: '',
+    message: '' as string,
     messageRules: [
       (v: string) => !!v || 'Subject is required',
       (v: string) => (v && v.length <= 200) || 'Subject must be less than 200 characters',
     ],
-    success: false as boolean,
-    error: false as boolean,
+    success: false,
+    error: false,
     baseUrl: process.env.BASE_URL as string
   }),
   methods: {

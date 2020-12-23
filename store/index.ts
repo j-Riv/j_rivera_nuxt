@@ -1,4 +1,5 @@
 import { ActionTree, MutationTree } from 'vuex'
+
 export const state = () => ({
   locales: ['en', 'es'],
   locale: 'en',
