@@ -9,10 +9,10 @@
   </v-app>
 </template>
 
-<script>
-import Drawer from '~/components/Drawer'
-import Header from '~/components/Header'
-import Footer from '~/components/Footer'
+<script lang="ts">
+import Drawer from '~/components/Drawer.vue'
+import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {

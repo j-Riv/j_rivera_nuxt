@@ -4,14 +4,15 @@
     "private": true,
     "author": "Jose A. Rivera <jose.alfredo.rivera@gmail.com>",
     "scripts": {
-        "dev": "nuxt --hostname localhost --port 3333",
-        "build": "nuxt build",
-        "start": "nuxt start",
-        "generate": "nuxt generate",
+        "dev": "nuxt-ts --hostname localhost --port 3333",
+        "build": "nuxt-ts build",
+        "start": "nuxt-ts start",
+        "generate": "nuxt-ts generate",
         "export": "nuxt export",
         "serve": "nuxt serve"
     },
     "dependencies": {
+        "@nuxt/typescript-runtime": "^2.0.0",
         "@nuxtjs/axios": "^5.11.0",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/sitemap": "^2.4.0",
@@ -24,7 +25,11 @@
         "vue-prism-component": "^1.2.0"
     },
     "devDependencies": {
+        "@nuxt/types": "^2.14.12",
+        "@nuxt/typescript-build": "^2.0.3",
         "@nuxtjs/vuetify": "^1.11.2",
+        "@types/prismjs": "^1.16.2",
+        "@types/vue-i18n": "^7.0.0",
         "collect.js": "^4.27.3"
     }
 }

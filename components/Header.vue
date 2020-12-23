@@ -88,11 +88,12 @@
   </div>
 </template>
 
-<script>
-import NavBar from './NavBar'
-import Drawer from './Drawer'
+<script lang="ts">
+import Vue from 'vue'
+import NavBar from './NavBar.vue'
+import Drawer from './Drawer.vue'
 
-export default {
+export default Vue.extend({
   name: 'Header',
   data () {
     return {
@@ -108,5 +109,5 @@ export default {
       this.$store.commit('SET_DRAWER', !this.$store.state.drawer)
     }
   }
-}
+})
 </script>

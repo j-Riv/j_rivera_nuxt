@@ -117,41 +117,44 @@
   </v-sheet>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
   name: 'ContactSection',
   data: () => ({
-    valid: true,
-    name: '',
+    valid: true as boolean,
+    name: '' as string,
     nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 25) || 'Name must be less than 25 characters',
+      (v: string) => !!v || 'Name is required',
+      (v: string) => (v && v.length <= 25) || 'Name must be less than 25 characters',
     ],
-    email: '',
+    email: '' as string,
     emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      (v: string) => !!v || 'E-mail is required',
+      (v: string) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
     subject: '',
     subjectRules: [
-      v=> !!v || 'Subject is required',
-      v => (v && v.length <= 25) || 'Subject must be less than 25 characters',
+      (v: string) => !!v || 'Subject is required',
+      (v: string) => (v && v.length <= 25) || 'Subject must be less than 25 characters',
     ],
     message: '',
     messageRules: [
-      v=> !!v || 'Subject is required',
-      v => (v && v.length <= 200) || 'Subject must be less than 200 characters',
+      (v: string) => !!v || 'Subject is required',
+      (v: string) => (v && v.length <= 200) || 'Subject must be less than 200 characters',
     ],
-    success: false,
-    error: false,
-    baseUrl: process.env.BASE_URL
+    success: false as boolean,
+    error: false as boolean,
+    baseUrl: process.env.BASE_URL as string
   }),
   methods: {
-    reset () {
-      this.$refs.form.reset()
+    reset (): void {
+      // this.$refs.form.reset()
+      (this.$refs.form as Vue & { reset: () => any }).reset()
     },
-    submit () {
-      const val = this.$refs.form.validate()
+    submit (): void {
+      // const val = this.$refs.form.validate()
+      const val = (this.$refs.form as Vue & { validate: () => boolean }).validate()
       if (val) {
         const data = {
           name: this.name,
@@ -174,5 +177,5 @@ export default {
       }
     }
   }
-}
+})
 </script>

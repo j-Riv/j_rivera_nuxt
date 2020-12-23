@@ -55,12 +55,12 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'BlogSection',
   data () {
     return {
-      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL as string
     }
   },
   props: ['articles']

@@ -56,13 +56,14 @@
   </section>
 </template>
 
-<script>
-import SocialNav from './SocialNav'
+<script lang="ts">
+import Vue from 'vue'
+import SocialNav from './SocialNav.vue'
 
-export default {
+export default Vue.extend({
   name: 'AboutSection',
   components: {
     SocialNav
   }
-}
+})
 </script>

@@ -34,16 +34,19 @@
 </v-container>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { Context } from '@nuxt/types'
+import Post from '~/types/post'
 import Prism from 'prismjs'
-export default {
+export default Vue.extend({
   data () {
     return {
-      post: '',
-      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL
+      post: {} as Post,
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL as string
     }
   },
-  head() {
+  head(): Object {
     return {
       title: this.post.title,
       meta: [
@@ -58,11 +61,11 @@ export default {
   mounted() {
     Prism.highlightAll()
   },
-  async asyncData ({ app, params, error, payload }) {
+  async asyncData ({ $axios, params, error, payload }: Context) {
     if (payload) {
       return { post: payload }
     } else {
-      let { data } = await app.$axios.post(process.env.COCKPIT_POSTS_URL,
+      let { data } = await $axios.post(process.env.COCKPIT_POSTS_URL,
       JSON.stringify({
           filter: { published: true, title_slug: params.title_slug },
           sort: {_created:-1},
@@ -79,7 +82,7 @@ export default {
       return { post: data.entries[0] }
     }
   }
-}
+})
 </script>
 
 <style scoped>

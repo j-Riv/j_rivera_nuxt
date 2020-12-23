@@ -32,7 +32,7 @@
   </v-toolbar-items>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'SocialNav',
   props: ['center']

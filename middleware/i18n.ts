@@ -1,4 +1,5 @@
-export default function ({ isHMR, app, store, route, params, error, redirect }) {
+import { Middleware } from '@nuxt/types'
+const i18n: Middleware  = function ({ isHMR, app, store, route, params, error, redirect }: any) {
   const defaultLocale = app.i18n.fallbackLocale
   // If middleware is called from hot module replacement, ignore it
   if (isHMR) { return }
@@ -19,3 +20,5 @@ export default function ({ isHMR, app, store, route, params, error, redirect }) 
     )
   }
 }
+
+export default i18n;

@@ -51,7 +51,7 @@ export default {
     middleware: 'i18n'
   },
   plugins: [
-    '~/plugins/i18n.js',
+    '~/plugins/i18n.ts',
     { src: '~/plugins/prism', ssr: false }
   ],
   generate: {
@@ -67,7 +67,8 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxt/typescript-build'
   ],
   /*
   ** Nuxt.js modules

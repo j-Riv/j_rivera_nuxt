@@ -34,13 +34,14 @@
   </v-list>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
   name: 'DrawerSubNav',
   methods: {
     closeDrawer() {
       this.$store.commit('SET_DRAWER', !this.$store.state.drawer)
     }
   }
-}
+})
 </script>

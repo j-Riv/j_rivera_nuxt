@@ -70,7 +70,10 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import { Context } from '@nuxt/types'
+import Posts from '../../types/posts'
+
 export default {
   name: 'Blog',
   data () {
@@ -91,8 +94,8 @@ export default {
       ]
     }
   },
-  async asyncData ({ $axios }) {
-    const { data } = await $axios.post(process.env.COCKPIT_POSTS_URL,
+  async asyncData ({ $axios }: Context) {
+    const { data }: Posts = await $axios.post(process.env.COCKPIT_POSTS_URL,
     JSON.stringify({
         filter: { published: true },
         sort: { _created: -1 },
