@@ -65,12 +65,13 @@
   </div>
 </template>
 
-<script>
-import SocialNav from '~/components/SocialNav'
+<script lang="ts">
+import Vue from 'vue'
+import SocialNav from '~/components/SocialNav.vue'
 
-export default {
+export default Vue.extend({
   name: 'Resume',
-  head() {
+  head(): Object {
     return {
       title: 'Resume',
       meta: [
@@ -85,5 +86,5 @@ export default {
   components: {
     SocialNav
   }
-}
+})
 </script>

@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "nuxt-ts --hostname localhost --port 3333",
         "build": "nuxt-ts build",
+        "prestart": "nuxt-ts build",
         "start": "nuxt-ts start",
         "generate": "nuxt-ts generate",
         "export": "nuxt export",
