@@ -6,36 +6,33 @@
     <h1 v-else>
       {{ otherError }}
     </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
+    <NuxtLink to="/">Home page</NuxtLink>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
   layout: 'empty',
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {
       pageNotFound: '404 Not Found' as string,
-      otherError: 'An error occurred' as string
-    }
+      otherError: 'An error occurred' as string,
+    };
   },
-  head (): Object {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+  head(): Object {
+    const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
     return {
-      title
-    }
-  }
-})
+      title,
+    };
+  },
+});
 </script>
 
 <style scoped>
