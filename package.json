@@ -10,7 +10,8 @@
         "start": "nuxt-ts start",
         "generate": "nuxt-ts generate",
         "export": "nuxt export",
-        "serve": "nuxt serve"
+        "serve": "nuxt serve",
+        "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore ."
     },
     "dependencies": {
         "@nuxt/typescript-runtime": "^2.0.0",
@@ -28,6 +29,7 @@
     "devDependencies": {
         "@nuxt/types": "^2.14.12",
         "@nuxt/typescript-build": "^2.0.3",
+        "@nuxtjs/eslint-config-typescript": "^5.0.0",
         "@nuxtjs/vuetify": "^1.11.2",
         "@types/express": "^4.17.9",
         "@types/nodemailer": "^6.4.0",
@@ -35,6 +37,15 @@
         "@types/nodemailer-smtp-transport": "^2.7.4",
         "@types/prismjs": "^1.16.2",
         "@types/vue-i18n": "^7.0.0",
-        "collect.js": "^4.27.3"
+        "@typescript-eslint/eslint-plugin": "^4.14.1",
+        "@typescript-eslint/parser": "^4.14.1",
+        "babel-eslint": "^10.1.0",
+        "collect.js": "^4.27.3",
+        "eslint": "^7.18.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^7.5.0",
+        "prettier": "^2.2.1"
     }
 }

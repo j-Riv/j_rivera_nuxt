@@ -1,26 +1,26 @@
 <template>
   <v-app dark>
-    <Drawer/>
-    <Header/>
+    <Drawer />
+    <Header />
     <v-main>
       <nuxt />
     </v-main>
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 
 <script lang="ts">
-import Drawer from '~/components/Drawer.vue'
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer.vue'
+import Drawer from '~/components/Drawer.vue';
+import Header from '~/components/Header.vue';
+import Footer from '~/components/Footer.vue';
 
 export default {
   components: {
     Drawer,
     Header,
-    Footer
-  }
-}
+    Footer,
+  },
+};
 </script>
 
 <style lang="scss">

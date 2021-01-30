@@ -1,11 +1,5 @@
 <template>
-  <v-sheet
-    id="contact"
-    class="grey darken-3"
-    dark
-    tag="section"
-    tile
-  >
+  <v-sheet id="contact" class="grey darken-3" dark tag="section" tile>
     <div class="py-12"></div>
 
     <v-container>
@@ -13,10 +7,7 @@
         {{ this.$t('contact.title') }}
       </h2>
 
-      <v-responsive
-        class="mx-auto mb-12"
-        width="56"
-      >
+      <v-responsive class="mx-auto mb-12" width="56">
         <v-divider class="mb-1" color="white"></v-divider>
 
         <v-divider color="white"></v-divider>
@@ -27,20 +18,16 @@
       </p>
 
       <v-theme-provider dark>
-        <v-form
-          ref="form"
-          v-model="valid"
-          lazy-validation
-        >
+        <v-form ref="form" v-model="valid" lazy-validation>
           <v-row>
             <v-col cols="12">
-            <v-text-field
-              v-model="name"
-              :counter="25"
-              :rules="nameRules"
-              :label="this.$t('contact.fields.name') + '*'"
-              required
-            ></v-text-field>
+              <v-text-field
+                v-model="name"
+                :counter="25"
+                :rules="nameRules"
+                :label="this.$t('contact.fields.name') + '*'"
+                required
+              ></v-text-field>
             </v-col>
             <v-col cols="12">
               <v-text-field
@@ -68,49 +55,25 @@
               ></v-textarea>
             </v-col>
 
-            <v-col
-              class="mx-auto"
-              cols="auto"
-            >
+            <v-col class="mx-auto" cols="auto">
+              <v-btn class="text-center" color="primary" x-large @click="submit">
+                {{ this.$t('contact.fields.submit') }}
+              </v-btn>
 
-            <v-btn
-              class="text-center"
-              color="primary"
-              x-large
-              @click="submit"
-            >
-              {{ this.$t('contact.fields.submit') }}
-            </v-btn>
-
-            <v-btn
-              class="text-center"
-              color="primary"
-              x-large
-              @click="reset"
-            >
-              {{ this.$t('contact.fields.reset') }}
-            </v-btn>
+              <v-btn class="text-center" color="primary" x-large @click="reset">
+                {{ this.$t('contact.fields.reset') }}
+              </v-btn>
             </v-col>
           </v-row>
-
         </v-form>
-
       </v-theme-provider>
 
-        <v-alert 
-          class="mt-4"
-          type="success"
-          v-if="success"
-        >
-          {{ this.$t('contact.fields.success') }}
-        </v-alert>
-        <v-alert 
-          class="mt-4"
-          type="error"
-          v-if="error"
-        >
-          {{ this.$t('contact.fields.error') }}
-        </v-alert>
+      <v-alert v-if="success" class="mt-4" type="success">
+        {{ this.$t('contact.fields.success') }}
+      </v-alert>
+      <v-alert v-if="error" class="mt-4" type="error">
+        {{ this.$t('contact.fields.error') }}
+      </v-alert>
     </v-container>
 
     <div class="py-12"></div>
@@ -118,7 +81,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'ContactSection',
@@ -146,37 +109,41 @@ export default Vue.extend({
     ],
     success: false,
     error: false,
-    baseUrl: process.env.BASE_URL as string
+    baseUrl: process.env.BASE_URL as string,
   }),
   methods: {
-    reset (): void {
+    reset(): void {
       // this.$refs.form.reset()
-      (this.$refs.form as Vue & { reset: () => any }).reset()
+      (this.$refs.form as Vue & { reset: () => any }).reset();
     },
-    submit (): void {
+    submit(): void {
       // const val = this.$refs.form.validate()
-      const val = (this.$refs.form as Vue & { validate: () => boolean }).validate()
+      const val = (this.$refs.form as Vue & {
+        validate: () => boolean;
+      }).validate();
       if (val) {
         const data = {
           name: this.name,
           email: this.email,
           subject: this.subject,
-          message: this.message
-        }
-        this.$axios.post(this.baseUrl + '/api/contact', data)
-          .then((response) => {
-            console.log('Success')
-            this.success = true
-            this.reset()
-            setTimeout(() => this.success = false, 4000)
-          }, (error) => {
-            console.log('Error')
-            this.error = true
-            this.reset()
-            setTimeout(() => this.error = false, 4000)
-          })
+          message: this.message,
+        };
+        this.$axios.post(this.baseUrl + '/api/contact', data).then(
+          () => {
+            console.log('Success');
+            this.success = true;
+            this.reset();
+            setTimeout(() => (this.success = false), 4000);
+          },
+          () => {
+            console.log('Error');
+            this.error = true;
+            this.reset();
+            setTimeout(() => (this.error = false), 4000);
+          }
+        );
       }
-    }
-  }
-})
+    },
+  },
+});
 </script>
