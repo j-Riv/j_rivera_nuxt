@@ -39,7 +39,6 @@ import Vue from 'vue'
 import { Context } from '@nuxt/types'
 import Post from '~/types/post'
 import Prism from 'prismjs'
-import 'prismjs/components/prism-php'
 export default Vue.extend({
   data () {
     return {
