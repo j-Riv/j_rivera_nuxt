@@ -1,6 +1,6 @@
 <template>
   <section id="skills">
-    <v-parallax :height="$vuetify.breakpoint.smAndDown ? 700 : 500" src="/images/iphone-on-notebook-beside-laptop.jpg">
+    <v-parallax :height="$vuetify.breakpoint.smAndDown ? 700 : 500" :src="backgroundImage">
       <v-container fill-height>
         <v-row>
           <v-col class="text-center">
@@ -36,6 +36,7 @@ export default Vue.extend({
   name: 'Skills',
   data() {
     return {
+      backgroundImage: '/images/thinkpad-toy-unsplash.jpg',
       skills: [
         [this.$t('skills.spokenLang.title'), this.$t('skills.spokenLang.content')],
         [this.$t('skills.programmingLang.title'), this.$t('skills.programmingLang.content')],
@@ -46,3 +47,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style scoped>
+.v-parallax {
+  background-color: #222;
+}
+</style>

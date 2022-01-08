@@ -15,9 +15,14 @@
       </v-list-item-content>
     </v-list-item>
 
-    <!-- <v-list-item @click="$vuetify.goTo('#skills'); closeDrawer()">
+    <!-- <v-list-item
+      @click="
+        $vuetify.goTo('#skills');
+        closeDrawer();
+      "
+    >
       <v-list-item-icon>
-        <v-icon class="mdi mdi-laptop"/>
+        <v-icon class="mdi mdi-laptop" />
       </v-list-item-icon>
 
       <v-list-item-content>

@@ -1,7 +1,7 @@
 {
     "nav": {
         "home": "INICIO",
-        "resume": "RESUME"
+        "resume": "CV"
     },
     "index": {
         "title": "Yo Soy j-Riv",
@@ -14,7 +14,7 @@
     },
     "about": {
         "title": "SOBRE MI",
-        "content": "Mi nombre es José Alfredo Rivera Turcios y soy un Desarrollador Web Full Stack con sede en el Condado de Orange, California."
+        "content": "Mi nombre es José Alfredo Rivera Turcios y soy un Desarrollador Web Full Stack con sede en el sur de California."
     },
     "skills": {
         "title": "MAESTRÍA",
