@@ -1,7 +1,7 @@
 <template>
   <section id="hero">
     <v-row no-gutters>
-      <v-img :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'" src="/images/header-macbook.jpg">
+      <v-img :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'" :src="backgroundImage">
         <v-theme-provider dark>
           <v-container fill-height>
             <v-row align="center" class="white--text mx-auto" justify="center">
@@ -31,5 +31,10 @@
 <script lang="ts">
 export default {
   name: 'Hero',
+  data() {
+    return {
+      backgroundImage: '/images/thinkpad-t14-fedora.jpg',
+    };
+  },
 };
 </script>

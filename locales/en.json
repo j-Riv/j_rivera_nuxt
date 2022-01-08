@@ -1,7 +1,7 @@
 {
     "nav": {
         "home": "HOME",
-        "resume": "RESUME"
+        "resume": "CV"
     },
     "index": {
         "title": "I am j-Riv",
@@ -14,7 +14,7 @@
     },
     "about": {
         "title": "ABOUT ME",
-        "content": "My Name is José Alfredo Rivera Turcios and I am a Full Stack Web Developer based out of Orange County, California."
+        "content": "My Name is José Alfredo Rivera Turcios and I am a Full Stack Web Developer based out of Southern California."
     },
     "skills": {
         "title": "SKILLS",

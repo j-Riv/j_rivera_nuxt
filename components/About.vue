@@ -14,7 +14,7 @@
       </v-responsive>
 
       <v-avatar class="elevation-12 mb-12" size="128">
-        <v-img src="/images/j-riv.jpg"></v-img>
+        <v-img src="/images/iam-jriv.jpeg"></v-img>
       </v-avatar>
 
       <v-responsive class="mx-auto title font-weight-light mb-8" max-width="720">
@@ -23,18 +23,7 @@
 
       <client-only placeholder="loading...">
         <prism language="javascript">
-          class Me { 
-            constructor() { 
-              this.name = "José Alfredo Rivera Turcios"; 
-              this.currentLocation = "Garden Grove, CA"; 
-              this.job = "Developer"; 
-              this.interests = ["Linux", "Technology", "Motorcycles", "Sports"]; 
-              this.hobbies = ["Beer", "Coding", "Tinkering"]; 
-            } 
-            get name() { 
-              return this.name; 
-              } 
-          }
+          {{ code }}
         </prism>
       </client-only>
 
@@ -51,10 +40,32 @@
 import Vue from 'vue';
 import SocialNav from './SocialNav.vue';
 
+const code = `
+  class Me { 
+    constructor() { 
+      this.name = 'José Alfredo Rivera Turcios'; 
+      this.currentLocation = 'California, United States'; 
+      this.job = 'Developer'; 
+      this.interests = [
+        'Dogs', 'Linux', 'Technology', 'Motorcycles', 'Sports'
+      ]; 
+      this.hobbies = ['Beer', 'Coding', 'Tinkering']; 
+    } 
+    get name() { 
+      return this.name; 
+    } 
+  }
+`;
+
 export default Vue.extend({
   name: 'AboutSection',
   components: {
     SocialNav,
+  },
+  data() {
+    return {
+      code,
+    };
   },
 });
 </script>
