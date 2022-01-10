@@ -36,7 +36,7 @@ export default Vue.extend({
       JSON.stringify({
         filter: { published: true },
         limit: 3,
-        sort: { _created: -1 },
+        sort: { date_published: -1 },
         populate: 1,
       }),
       {

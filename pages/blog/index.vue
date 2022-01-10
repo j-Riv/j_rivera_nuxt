@@ -62,7 +62,7 @@ export default {
       process.env.COCKPIT_POSTS_URL,
       JSON.stringify({
         filter: { published: true },
-        sort: { _created: -1 },
+        sort: { date_published: -1 },
         populate: 1,
       }),
       {

@@ -27,7 +27,8 @@
         <h1 class="mt-2 text-3xl font-bold">
           {{ post.title }}
         </h1>
-        <div class="mt-4" v-html="post.content"></div>
+        <!-- <div class="mt-4" v-html="post.content"></div> -->
+        <PostContent :content="post.content" />
       </article>
     </section>
   </v-container>
@@ -37,23 +38,11 @@
 import Vue from 'vue';
 import { Context } from '@nuxt/types';
 import Prism from 'prismjs';
+import PostContent from '~/components/PostContent.vue';
 import Post from '~/types/post';
 
-const lazyImageInit = () => {
-  const images: any = document.querySelectorAll('.lazy-image');
-  if (images.length) {
-    images.forEach((img: HTMLImageElement) => {
-      const image = new Image();
-      const dataSrc = img.getAttribute('data-src') as string;
-      image.src = dataSrc;
-      image.onload = () => {
-        return (img.src = image.src);
-      };
-    });
-  }
-};
-
 export default Vue.extend({
+  components: { PostContent },
   async asyncData({ $axios, params, error, payload }: Context) {
     if (payload) {
       return { post: payload };
@@ -97,7 +86,6 @@ export default Vue.extend({
   },
   mounted() {
     Prism.highlightAll();
-    lazyImageInit();
   },
 });
 </script>
