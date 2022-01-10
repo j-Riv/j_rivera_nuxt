@@ -36,7 +36,7 @@ export default Vue.extend({
   name: 'Skills',
   data() {
     return {
-      backgroundImage: '/images/thinkpad-toy-unsplash.jpg',
+      backgroundImage: '/images/thinkpad-t14-fedora-faded.jpg',
       skills: [
         [this.$t('skills.spokenLang.title'), this.$t('skills.spokenLang.content')],
         [this.$t('skills.programmingLang.title'), this.$t('skills.programmingLang.content')],
