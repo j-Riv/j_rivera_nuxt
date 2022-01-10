@@ -90,10 +90,9 @@ export default Vue.extend({
 </script>
 
 <style>
-.lazy-image {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
+.post-image p {
+  font-style: italic;
+  color: #ccc;
 }
 </style>
 
