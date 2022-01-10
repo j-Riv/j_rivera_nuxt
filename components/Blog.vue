@@ -34,7 +34,14 @@
 <script lang="ts">
 export default {
   name: 'BlogSection',
-  props: ['articles'],
+  props: {
+    articles: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
   data() {
     return {
       cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL as string,
