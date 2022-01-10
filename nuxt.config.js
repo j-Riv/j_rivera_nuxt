@@ -108,6 +108,7 @@ export default {
    */
   build: {
     extend(config, ctx) {
+      config.resolve.alias.vue$ = 'vue/dist/vue.esm.js';
       ctx.loaders.vue.compilerOptions = {
         modules: [VuetifyProgressiveModule],
       };
