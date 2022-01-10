@@ -27,7 +27,6 @@
         <h1 class="mt-2 text-3xl font-bold">
           {{ post.title }}
         </h1>
-        <!-- <div class="mt-4" v-html="post.content"></div> -->
         <PostContent :content="post.content" />
       </article>
     </section>

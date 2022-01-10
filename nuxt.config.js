@@ -85,6 +85,7 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: false,
     theme: {
       dark: true,
       themes: {
@@ -108,7 +109,6 @@ export default {
    */
   build: {
     extend(config, ctx) {
-      config.resolve.alias.vue$ = 'vue/dist/vue.esm.js';
       ctx.loaders.vue.compilerOptions = {
         modules: [VuetifyProgressiveModule],
       };
@@ -137,6 +137,7 @@ export default {
           exclude: /(node_modules)/,
         });
       }
+      config.resolve.alias.vue$ = 'vue/dist/vue.esm.js';
     },
   },
 };
