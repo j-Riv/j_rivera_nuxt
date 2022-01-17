@@ -60,5 +60,6 @@ export default interface Posts {
         _id: string;
       }
     ];
+    total: number;
   };
 }

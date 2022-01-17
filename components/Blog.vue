@@ -15,14 +15,14 @@
 
       <v-row>
         <v-col v-for="(post, i) in articles" :key="i" cols="12" md="4">
-          <NuxtLink :to="'/blog/' + post.title_slug">
-            <v-img :src="cockpitStorageUrl + post.image.path" class="mb-4" height="275" max-width="100%"></v-img>
+          <NuxtLink :to="`/blog/post/${post.title_slug}`">
+            <v-img :src="`${cockpitStorageUrl}${post.image.path}`" class="mb-4" height="275" max-width="100%"></v-img>
           </NuxtLink>
           <h3 class="font-weight-black mb-4 text-uppercase" v-text="post.title"></h3>
 
           <div class="title font-weight-light mb-5" v-text="post.meta_description"></div>
 
-          <v-btn class="ml-n4 font-weight-black" text :to="'/blog/' + post.title_slug">Continue Reading</v-btn>
+          <v-btn class="ml-n4 font-weight-black" text :to="`/blog/post/${post.title_slug}`">Continue Reading</v-btn>
         </v-col>
       </v-row>
     </v-container>

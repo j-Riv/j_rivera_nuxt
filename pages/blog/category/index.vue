@@ -1,9 +1,7 @@
 <template>
-  <section id="blog" :key="$route.fullPath">
+  <v-container id="blog">
     <v-container>
-      <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
-        {{ this.$t('blog.title') }}
-      </h2>
+      <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">Posts tagged with "{{ category }}"</h2>
 
       <v-responsive class="mx-auto mb-12" width="56">
         <v-divider class="mb-1" color="white"></v-divider>
@@ -12,10 +10,10 @@
       </v-responsive>
 
       <v-row>
-        <v-col v-for="(post, i) in articles" :key="i" cols="12" md="4">
+        <v-col v-for="(post, i) in posts" :key="i" cols="12" md="4">
           <NuxtLink :to="`/blog/post/${post.title_slug}`">
             <v-img
-              :src="cockpitStorageUrl + post.image.path"
+              :src="`${cockpitStorageUrl}${post.image.path}`"
               :lazy-src="`${cockpitStorageUrl}${post.image_thumbnail.path}`"
               class="mb-4"
               height="275"
@@ -25,20 +23,6 @@
           </NuxtLink>
 
           <h3 class="font-weight-black mb-4 text-uppercase" v-text="post.title"></h3>
-
-          <v-chip
-            v-for="(tag, key) in post.tags"
-            :key="key"
-            class="ma-2"
-            color="primary"
-            text-color="white"
-            :to="`/blog/category/${tag}`"
-          >
-            <v-avatar left>
-              <v-icon>mdi-feature-search-outline</v-icon>
-            </v-avatar>
-            {{ tag }}
-          </v-chip>
 
           <div class="title font-weight-light mb-5" v-text="post.meta_description"></div>
 
@@ -51,54 +35,60 @@
       v-if="total > postsPerPage"
       :total-pages="Math.ceil(total / postsPerPage)"
       :current-page="1"
-      base-path="blog"
+      :base-path="`blog/category/${this.$route.params.tag}`"
     />
 
     <div class="py-12"></div>
-  </section>
+  </v-container>
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { Context } from '@nuxt/types';
-import Posts from '../../types/posts';
+import Post from '~/types/post';
 import Pagination from '~/components/Pagination.vue';
 
 const postsPerPage = parseInt(process.env.POSTS_PER_PAGE as string);
 
-export default {
-  name: 'Blog',
+export default Vue.extend({
+  name: 'BlogCategory',
   components: {
     Pagination,
   },
-  async asyncData({ $axios }: Context) {
-    const { data }: Posts = await $axios.post(
-      process.env.COCKPIT_POSTS_URL,
-      JSON.stringify({
-        filter: { published: true },
-        sort: { date_published: -1 },
-        limit: postsPerPage,
-        populate: 1,
-      }),
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+  async asyncData({ $axios, params, error, payload }: Context) {
+    if (payload) {
+      return { posts: payload, category: params.tag };
+    } else {
+      const { data } = await $axios.post(
+        process.env.COCKPIT_POSTS_URL,
+        JSON.stringify({
+          filter: { published: true, tags: { $in: [params.tag] } },
+          sort: { _created: -1 },
+          limit: postsPerPage,
+          populate: 1,
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
 
-    return {
-      articles: data.entries,
-      total: data.total,
-    };
+      if (!data.entries[0]) {
+        return error({ message: '404 Page not found', statusCode: 404 });
+      }
+
+      return { posts: data.entries, category: params.tag };
+    }
   },
   data() {
     return {
-      articles: [],
-      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL,
+      posts: {} as Post,
+      cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL as string,
       postsPerPage,
     };
   },
   head() {
     return {
-      title: 'Blog',
+      title: 'Blog | Posts tagged with: ' + this.$route.params.tag,
       meta: [
         {
           hid: 'description',
@@ -108,5 +98,5 @@ export default {
       ],
     };
   },
-};
+});
 </script>

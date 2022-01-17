@@ -38,7 +38,7 @@ export default async () => {
   const posts = collection
     .map((post: { title_slug: string }) => {
       return {
-        route: `blog/${post.title_slug}`,
+        route: `blog/post/${post.title_slug}`,
         payload: post,
       };
     })
