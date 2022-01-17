@@ -3,8 +3,8 @@
     <section>
       <article class="my-8">
         <v-img
-          :src="cockpitStorageUrl + post.image.path"
-          :lazy-src="cockpitStorageUrl + post.image_thumbnail.path"
+          :src="`${cockpitStorageUrl}${post.image.path}`"
+          :lazy-src="`${cockpitStorageUrl}${post.image_thumbnail.path}`"
           max-width="100%"
           class="mb-4"
           :alt="post.image_alt"

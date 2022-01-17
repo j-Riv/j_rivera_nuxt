@@ -15,7 +15,7 @@
         <v-col v-for="(post, i) in articles" :key="i" cols="12" md="4">
           <NuxtLink :to="`/blog/post/${post.title_slug}`">
             <v-img
-              :src="cockpitStorageUrl + post.image.path"
+              :src="`${cockpitStorageUrl}${post.image.path}`"
               :lazy-src="`${cockpitStorageUrl}${post.image_thumbnail.path}`"
               class="mb-4"
               height="275"
@@ -50,7 +50,7 @@
     <Pagination
       v-if="total > postsPerPage"
       :total-pages="Math.ceil(total / postsPerPage)"
-      :current-page="1"
+      :current-page="parseInt(this.$route.params.page)"
       base-path="blog"
     />
 
@@ -70,13 +70,14 @@ export default {
   components: {
     Pagination,
   },
-  async asyncData({ $axios }: Context) {
+  async asyncData({ $axios, params }: Context) {
     const { data }: Posts = await $axios.post(
       process.env.COCKPIT_POSTS_URL,
       JSON.stringify({
         filter: { published: true },
         sort: { date_published: -1 },
         limit: postsPerPage,
+        skip: params.page ? (Number(params.page) - 1) * postsPerPage : 0,
         populate: 1,
       }),
       {

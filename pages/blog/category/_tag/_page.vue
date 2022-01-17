@@ -11,10 +11,10 @@
 
       <v-row>
         <v-col v-for="(post, i) in posts" :key="i" cols="12" md="4">
-          <NuxtLink :to="'/blog/' + post.title_slug">
+          <NuxtLink :to="`/blog/post/${post.title_slug}`">
             <v-img
-              :src="cockpitStorageUrl + post.image.path"
-              :lazy-src="cockpitStorageUrl + post.image_thumbnail.path"
+              :src="`${cockpitStorageUrl}${post.image.path}`"
+              :lazy-src="`${cockpitStorageUrl}${post.image_thumbnail.path}`"
               class="mb-4"
               height="275"
               max-width="100%"
@@ -26,10 +26,17 @@
 
           <div class="title font-weight-light mb-5" v-text="post.meta_description"></div>
 
-          <v-btn class="ml-n4 font-weight-black" text :to="'/blog/' + post.title_slug">Continue Reading</v-btn>
+          <v-btn class="ml-n4 font-weight-black" text :to="`/blog/post/${post.title_slug}`">Continue Reading</v-btn>
         </v-col>
       </v-row>
     </v-container>
+
+    <Pagination
+      v-if="total > postsPerPage"
+      :total-pages="Math.ceil(total / postsPerPage)"
+      :current-page="parseInt(this.$route.params.page)"
+      :base-path="`blog/category/${this.$route.params.tag}`"
+    />
 
     <div class="py-12"></div>
   </v-container>
@@ -38,10 +45,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Context } from '@nuxt/types';
-// import { Route } from 'vue-router';
 import Post from '~/types/post';
+import Pagination from '~/components/Pagination.vue';
+
+const postsPerPage = parseInt(process.env.POSTS_PER_PAGE as string);
 
 export default Vue.extend({
+  name: 'BlogCategory',
+  components: {
+    Pagination,
+  },
   async asyncData({ $axios, params, error, payload }: Context) {
     if (payload) {
       return { posts: payload, category: params.tag };
@@ -51,6 +64,8 @@ export default Vue.extend({
         JSON.stringify({
           filter: { published: true, tags: { $in: [params.tag] } },
           sort: { _created: -1 },
+          limit: postsPerPage,
+          skip: params.page ? (Number(params.page) - 1) * postsPerPage : 0,
           populate: 1,
         }),
         {
@@ -62,13 +77,14 @@ export default Vue.extend({
         return error({ message: '404 Page not found', statusCode: 404 });
       }
 
-      return { posts: data.entries, category: params.tag };
+      return { posts: data.entries, category: params.tag, total: data.total };
     }
   },
   data() {
     return {
       posts: {} as Post,
       cockpitStorageUrl: process.env.COCKPIT_STORAGE_URL as string,
+      postsPerPage,
     };
   },
   head() {

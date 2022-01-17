@@ -29,6 +29,11 @@
 <script lang="ts">
 export default {
   name: 'SocialNav',
-  props: ['center'],
+  props: {
+    center: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
