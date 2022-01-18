@@ -50,7 +50,7 @@
     <Pagination
       v-if="total > postsPerPage"
       :total-pages="Math.ceil(total / postsPerPage)"
-      :current-page="parseInt(this.$route.params.page)"
+      :current-page="this.$route.params.page ? parseInt(this.$route.params.page) : 1"
       base-path="blog"
     />
 

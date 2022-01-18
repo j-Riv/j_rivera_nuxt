@@ -21,7 +21,8 @@
       "@types/prismjs",
       "@types/express",
       "@types/nodemailer",
-      "vue-i18n"
+      "vue-i18n",
+      "vuetify"
     ]
   },
   "exclude": ["node_modules"]
