@@ -9,7 +9,7 @@ export default interface Posts {
           title: string;
           mime: string;
           desciption: string;
-          tags: [];
+          tags: string[];
           size: number;
           image: boolean;
           video: boolean;

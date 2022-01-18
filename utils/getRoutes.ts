@@ -1,7 +1,7 @@
 import axios from 'axios';
+import collect from 'collect.js';
 import Posts from '~/types/posts';
 require('dotenv').config();
-const collect = require('collect.js');
 
 export default async () => {
   const { data }: Posts = await axios.post(
@@ -21,7 +21,7 @@ export default async () => {
     .map((post: { tags: string[] }) => post.tags)
     .flatten()
     .unique()
-    .map((tag: string) => {
+    .map(tag => {
       const payload = collection
         .filter((item: { tags: string[] }) => {
           return collect(item.tags).contains(tag);
@@ -44,7 +44,7 @@ export default async () => {
     })
     .all();
 
-  const r = ['/', '/es', '/resume', '/es/resume'];
+  const lang = ['/', '/es', '/resume', '/es/resume'];
 
-  return r.concat(posts).concat(tags);
+  return [...lang, ...posts, ...tags];
 };

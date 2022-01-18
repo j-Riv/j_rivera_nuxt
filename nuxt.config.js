@@ -54,12 +54,17 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  router: {
-    middleware: 'i18n',
-  },
   plugins: ['~/plugins/i18n.ts', { src: '~/plugins/prism', ssr: false }],
   generate: {
     routes: async () => await getRoutes(),
+  },
+  router: {
+    middleware: 'i18n',
+    extendRoutes(routes) {
+      for (const key in routes) {
+        routes[key].caseSensitive = true;
+      }
+    },
   },
   /*
    ** Auto import components
@@ -85,7 +90,9 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    treeShake: false,
+    treeShake: {
+      components: ['VImg'],
+    },
     theme: {
       dark: true,
       themes: {
