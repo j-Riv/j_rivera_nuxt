@@ -5,7 +5,7 @@
         <v-row>
           <v-col class="text-center">
             <h2 class="display-2 font-weight-bold mb-1">
-              {{ this.$t('skills.title') }}
+              {{ $t('skills.title') }}
             </h2>
 
             <v-responsive class="mx-auto mb-12" width="56">

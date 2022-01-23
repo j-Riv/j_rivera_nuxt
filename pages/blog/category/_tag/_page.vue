@@ -34,8 +34,8 @@
     <Pagination
       v-if="total > postsPerPage"
       :total-pages="Math.ceil(total / postsPerPage)"
-      :current-page="this.$route.params.page ? parseInt(this.$route.params.page) : 1"
-      :base-path="`blog/category/${this.$route.params.tag}`"
+      :current-page="$route.params.page ? parseInt($route.params.page) : 1"
+      :base-path="`blog/category/${$route.params.tag}`"
     />
 
     <div class="py-12"></div>

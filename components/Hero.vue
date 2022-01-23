@@ -7,7 +7,7 @@
             <v-row align="center" class="white--text mx-auto" justify="center">
               <v-col class="white--text text-center" cols="12" tag="h1">
                 <span :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2']" class="font-weight-light">
-                  {{ this.$t('hero.iam') }}
+                  {{ $t('hero.iam') }}
                 </span>
 
                 <br />

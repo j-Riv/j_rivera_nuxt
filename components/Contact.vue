@@ -4,7 +4,7 @@
 
     <v-container>
       <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
-        {{ this.$t('contact.title') }}
+        {{ $t('contact.title') }}
       </h2>
 
       <v-responsive class="mx-auto mb-12" width="56">
@@ -14,7 +14,7 @@
       </v-responsive>
 
       <p class="font-weight-regular mb-3 text-center">
-        {{ this.$t('contact.message') }}
+        {{ $t('contact.message') }}
       </p>
 
       <v-theme-provider dark>
@@ -25,7 +25,7 @@
                 v-model="name"
                 :counter="25"
                 :rules="nameRules"
-                :label="this.$t('contact.fields.name') + '*'"
+                :label="$t('contact.fields.name') + '*'"
                 required
               ></v-text-field>
             </v-col>
@@ -33,7 +33,7 @@
               <v-text-field
                 v-model="email"
                 :rules="emailRules"
-                :label="this.$t('contact.fields.email') + '*'"
+                :label="$t('contact.fields.email') + '*'"
                 required
               ></v-text-field>
             </v-col>
@@ -41,7 +41,7 @@
               <v-text-field
                 v-model="subject"
                 :rules="subjectRules"
-                :label="this.$t('contact.fields.subject') + '*'"
+                :label="$t('contact.fields.subject') + '*'"
                 required
               ></v-text-field>
             </v-col>
@@ -50,18 +50,18 @@
                 v-model="message"
                 :counter="200"
                 :rules="messageRules"
-                :label="this.$t('contact.fields.message') + '*'"
+                :label="$t('contact.fields.message') + '*'"
                 required
               ></v-textarea>
             </v-col>
 
             <v-col class="mx-auto" cols="auto">
               <v-btn class="text-center" color="primary" x-large @click="submit">
-                {{ this.$t('contact.fields.submit') }}
+                {{ $t('contact.fields.submit') }}
               </v-btn>
 
               <v-btn class="text-center" color="primary" x-large @click="reset">
-                {{ this.$t('contact.fields.reset') }}
+                {{ $t('contact.fields.reset') }}
               </v-btn>
             </v-col>
           </v-row>
@@ -69,10 +69,10 @@
       </v-theme-provider>
 
       <v-alert v-if="success" class="mt-4" type="success">
-        {{ this.$t('contact.fields.success') }}
+        {{ $t('contact.fields.success') }}
       </v-alert>
       <v-alert v-if="error" class="mt-4" type="error">
-        {{ this.$t('contact.fields.error') }}
+        {{ $t('contact.fields.error') }}
       </v-alert>
     </v-container>
 
@@ -118,9 +118,11 @@ export default Vue.extend({
     },
     submit(): void {
       // const val = this.$refs.form.validate()
-      const val = (this.$refs.form as Vue & {
-        validate: () => boolean;
-      }).validate();
+      const val = (
+        this.$refs.form as Vue & {
+          validate: () => boolean;
+        }
+      ).validate();
       if (val) {
         const data = {
           name: this.name,

@@ -4,7 +4,7 @@
 
     <v-container>
       <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
-        {{ this.$t('blog.title') }}
+        {{ $t('blog.title') }}
       </h2>
 
       <v-responsive class="mx-auto mb-12" width="56">

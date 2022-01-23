@@ -4,7 +4,7 @@
 
     <v-container class="text-center">
       <h2 class="display-2 font-weight-bold mb-3">
-        {{ this.$t('about.title') }}
+        {{ $t('about.title') }}
       </h2>
 
       <v-responsive class="mx-auto mb-8" width="56">
@@ -18,7 +18,7 @@
       </v-avatar>
 
       <v-responsive class="mx-auto title font-weight-light mb-8" max-width="720">
-        {{ this.$t('about.content') }}
+        {{ $t('about.content') }}
       </v-responsive>
 
       <client-only placeholder="loading...">
