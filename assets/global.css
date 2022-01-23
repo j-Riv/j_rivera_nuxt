@@ -1,0 +1,6 @@
+.theme--dark.v-application code {
+  background-color: transparent !important;
+}
+.theme--dark.v-application .text-center code {
+  text-align: left;
+}

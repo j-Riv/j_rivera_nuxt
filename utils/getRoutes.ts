@@ -46,5 +46,5 @@ export default async () => {
 
   const lang = ['/', '/es', '/resume', '/es/resume'];
 
-  return [...lang, ...posts, ...tags];
+  return [...lang, ...posts, ...tags, '/blog/category'];
 };

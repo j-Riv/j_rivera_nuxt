@@ -1,4 +1,4 @@
 <script lang="ts">
-import BlogCategory from '~/pages/blog/category/_tag/_page.vue';
-export default BlogCategory;
+import Blog from '~/pages/blog/index.vue';
+export default Blog;
 </script>

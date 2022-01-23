@@ -2,7 +2,6 @@
   <div>
     <Hero />
     <About />
-    <!-- <Features/> -->
     <Skills />
     <Blog :articles="posts" />
     <Contact />
@@ -15,7 +14,6 @@ import { Context } from '@nuxt/types';
 import Posts from '~/types/posts';
 import Hero from '~/components/Hero.vue';
 import About from '~/components/About.vue';
-// import Features from '~/components/Features.vue'
 import Skills from '~/components/Skills.vue';
 import Blog from '~/components/Blog.vue';
 import Contact from '~/components/Contact.vue';
@@ -25,7 +23,6 @@ export default Vue.extend({
   components: {
     Hero,
     About,
-    // Featured,
     Skills,
     Blog,
     Contact,

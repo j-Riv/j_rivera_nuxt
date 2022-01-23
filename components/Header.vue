@@ -18,7 +18,7 @@
           </v-toolbar-items>
         </template>
         <v-list v-if="!$route.path.includes('blog')">
-          <v-list-item v-if="this.$i18n.locale === 'es'">
+          <v-list-item v-if="$i18n.locale === 'es'">
             <v-btn text :to="$route.fullPath.replace(/^\/[^\/]+/, '')">
               <v-list-item-title>En</v-list-item-title>
             </v-btn>
@@ -35,22 +35,22 @@
         class="d-none d-md-flex"
       >
         <v-btn text @click="$vuetify.goTo('#about-me')">
-          {{ this.$t('index.about') }}
+          {{ $t('index.about') }}
         </v-btn>
         <!-- <v-btn text @click="$vuetify.goTo('#skills')">
             {{ this.$t('index.skills') }}
           </v-btn> -->
         <v-btn text @click="$vuetify.goTo('#contact')">
-          {{ this.$t('index.contact') }}
+          {{ $t('index.contact') }}
         </v-btn>
         <NavBar />
       </v-toolbar-items>
       <v-toolbar-items v-else class="d-none d-md-flex">
-        <v-btn v-if="this.$i18n.locale === 'en'" text to="/">
-          {{ this.$t('nav.home') }}
+        <v-btn v-if="$i18n.locale === 'en'" text to="/">
+          {{ $t('nav.home') }}
         </v-btn>
         <v-btn v-else text to="/es/">
-          {{ this.$t('nav.home') }}
+          {{ $t('nav.home') }}
         </v-btn>
         <NavBar />
       </v-toolbar-items>

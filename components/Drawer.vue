@@ -14,13 +14,13 @@
     <v-divider></v-divider>
 
     <v-list dense>
-      <v-list-item v-if="this.$i18n.locale === 'en'" to="/">
+      <v-list-item v-if="$i18n.locale === 'en'" to="/">
         <v-list-item-icon>
           <v-icon class="mdi mdi-home-export-outline" />
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ this.$t('nav.home') }}</v-list-item-title>
+          <v-list-item-title>{{ $t('nav.home') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -30,19 +30,19 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ this.$t('nav.home') }}</v-list-item-title>
+          <v-list-item-title>{{ $t('nav.home') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <DrawerSubNav v-if="$route.path === '/' || $route.path === '/es/'" />
 
-      <v-list-item v-if="this.$i18n.locale === 'en'" to="/resume">
+      <v-list-item v-if="$i18n.locale === 'en'" to="/resume">
         <v-list-item-icon>
           <v-icon class="mdi mdi-earth" />
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ this.$t('nav.resume') }}</v-list-item-title>
+          <v-list-item-title>{{ $t('nav.resume') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -52,7 +52,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ this.$t('nav.resume') }}</v-list-item-title>
+          <v-list-item-title>{{ $t('nav.resume') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 

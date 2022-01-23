@@ -18,11 +18,13 @@
       "@types/node",
       "@nuxt/types",
       "@nuxtjs/axios",
+      "@nuxtjs/vuetify",
       "@types/prismjs",
       "@types/express",
       "@types/nodemailer",
       "vue-i18n",
-      "vuetify"
+      "vuetify",
+      "vuex"
     ]
   },
   "exclude": ["node_modules"]

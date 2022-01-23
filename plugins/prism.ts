@@ -3,7 +3,7 @@ import Prism from 'vue-prism-component';
 
 import 'prismjs';
 
-import 'prismjs/themes/prism-tomorrow.css';
+import '~/assets/prism-material-dark.css';
 
 import 'prismjs/components/prism-scss.min';
 

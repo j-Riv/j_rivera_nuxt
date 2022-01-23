@@ -2,7 +2,7 @@
   <section id="blog" :key="$route.fullPath">
     <v-container>
       <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">
-        {{ this.$t('blog.title') }}
+        {{ $t('blog.title') }}
       </h2>
 
       <v-responsive class="mx-auto mb-12" width="56">
@@ -50,7 +50,7 @@
     <Pagination
       v-if="total > postsPerPage"
       :total-pages="Math.ceil(total / postsPerPage)"
-      :current-page="this.$route.params.page ? parseInt(this.$route.params.page) : 1"
+      :current-page="$route.params.page ? parseInt($route.params.page) : 1"
       base-path="blog"
     />
 
