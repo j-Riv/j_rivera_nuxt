@@ -56,6 +56,11 @@
                         </ul>
                       </v-flex>
                     </v-layout>
+                    <v-layout>
+                      <v-flex xs12 class="pt-4">
+                        <p>{{ $t('resume.suaveTechUsed') }}</p>
+                      </v-flex>
+                    </v-layout>
                   </v-container>
                 </div>
                 <div class="pa-5 resume-section">
