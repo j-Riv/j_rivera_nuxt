@@ -76,7 +76,7 @@
             "Desarrollé e implementé integraciones personalizadas para sincronizar datos entre API de terceros y NetSuite.",
             "Desarrollé e implementé varios proyectos, incluidas páginas de inicio personalizadas, aplicaciones de suscripción de productos y aplicaciones de informes de actividades y ventas internas."
         ],
-        "suaveTechUsed": "Tecnologías utilizadas: JavaScript, TypeScript, NodeJS, React, Vue, Next.js, Gatsby, Redux, Vuex, HTML, PHP, SCSS, CSS, jQuery, SQL, Rest, GraphQL, JSON.",
+        "suaveTechUsed": "Tecnologías utilizadas: JavaScript, TypeScript, NodeJS, React, Vue, Next.js, Gatsby, Redux, Vuex, HTML, PHP, SCSS, CSS, jQuery, SQL, Rest, GraphQL, JSON, Docker, Containers.",
         "education": "Educación",
         "bootcampCertificate": "Certificado Bootcamp",
         "uci": "Universidad de California Irvine, Irvine, CA",
