@@ -1,7 +1,7 @@
 # j-Rivera
 > A containerized blog, powered by Nodejs, NuxtJS and Cockpit CMS all behind a Traefik reverse proxy. Deployed to Digital Ocean via Docker.
 
-<a href="https://j-rivera.com">j-rivera.com</a>
+[Moved to Next](https://github.com/j-Riv/j_rivera)
 
 #### Custom Compiled Component Example
 > `` needs to be included for literals
